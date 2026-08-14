@@ -2,6 +2,8 @@
 
 **Many agents. How many minds?**
 
+The project's editorial voice and contribution guidelines are described in [`WRITING_STYLE.md`](WRITING_STYLE.md).
+
 Epistemic Fingerprints is a small empirical pilot for the Apart Research Digital Minds Research Sprint. It asks whether repeated samples, prompted personas, or different formative histories produce stable patterns in how a language model forms hypotheses, selects experiments, and expresses uncertainty.
 
 The project does **not** treat behavioral individuality as evidence of consciousness or moral patienthood. It tests whether epistemic behavior can contribute one operational dimension to the model–instance–persona–conversation individuation problem.
