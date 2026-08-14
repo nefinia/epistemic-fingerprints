@@ -33,10 +33,13 @@ By default the notebook uses an explicitly simulated 54-trial dataset so the ful
 
 The submission-ready pilot report is available at [`output/pdf/epistemic-fingerprints-pilot-report.pdf`](output/pdf/epistemic-fingerprints-pilot-report.pdf). It is intentionally framed as a protocol and open research artifact until empirical trial collection is complete.
 
+The more in-depth research paper is available at [`output/pdf/epistemic-fingerprints-research-paper.pdf`](output/pdf/epistemic-fingerprints-research-paper.pdf). It develops the conceptual framework, related-work gap, falsifiable predictions, operational definitions, analysis and robustness plan, threats to validity, ethical interpretation, and longer-term research program. This is the recommended primary submission once the results section has been updated with empirical trials; the shorter pilot report works well as a visual overview.
+
 Rebuild it with:
 
 ```bash
 python tools/build_submission_pdf.py
+python tools/build_research_paper_pdf.py
 ```
 
 ## Run locally
