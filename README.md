@@ -8,6 +8,17 @@ Epistemic Fingerprints is a small empirical pilot for the Apart Research Digital
 
 The project does **not** treat behavioral individuality as evidence of consciousness or moral patienthood. It tests whether epistemic behavior can contribute one operational dimension to the model–instance–persona–conversation individuation problem.
 
+## A wider inquiry
+
+The pilot is the empirical nucleus of a broader interdisciplinary question: what happens when many apparently different voices rely on increasingly shared cognitive infrastructure? This connects the measurement of epistemic fingerprints to art, philosophy, politics and society—not as substitutes for evidence, but as different ways of understanding what the evidence could mean.
+
+- **Art:** make convergence, repetition and unexplored conceptual space perceptible rather than reducing diversity to a single score.
+- **Politics:** examine who shapes the models that increasingly mediate public reasoning and institutional decisions.
+- **Society:** study whether low-frequency languages, situated knowledge and minority explanations are disproportionately lost.
+- **Philosophy:** clarify whether model, instance, persona, conversation, memory or epistemic history is the relevant unit of individuality.
+
+The weekend submission keeps these implications separate from its limited empirical claims. The longer-term programme is described in [`RESEARCH_VISION.md`](RESEARCH_VISION.md).
+
 ## Pilot design
 
 - One underlying model is held fixed.

@@ -122,6 +122,7 @@ export function ExperimentApp() {
         <a className="wordmark" href="#top"><span>EF</span> Epistemic Fingerprints</a>
         <div className="nav-links">
           <a href="#idea">The idea</a>
+          <a href="#ecology">The wider inquiry</a>
           <a href="#results">Results</a>
           <a href="#lab">Run a trial</a>
           <a href="#protocol">Protocol</a>
@@ -178,9 +179,26 @@ export function ExperimentApp() {
         <aside className="scope-note"><strong>The larger question</strong><p>Could the number of apparent cognitive agents increase dramatically while effective epistemic diversity decreases? This weekend study cannot answer that. It builds one small instrument for investigating it.</p></aside>
       </section>
 
+      <section id="ecology" className="section ecology-section">
+        <div className="shell">
+          <div className="section-head light">
+            <div><p className="eyebrow">01 · The wider inquiry</p><h2>When many voices share the same blind spots</h2></div>
+            <p>The experiment is small. The world around the question is not.</p>
+          </div>
+          <p className="ecology-intro">If a few foundation models become part of how millions of people write, imagine, research and decide, epistemic diversity becomes more than a technical metric. It becomes a question about culture, power and what a society remains able to notice.</p>
+          <div className="ecology-grid">
+            <article><span>ART</span><h3>Can we perceive what is absent?</h3><p>Art can make convergence visible: repeated metaphors, familiar futures and conceptual regions that no agent enters. An epistemic atlas could show not only the ideas produced, but the negative space around them.</p></article>
+            <article><span>POLITICS</span><h3>Who shapes the cognitive infrastructure?</h3><p>A population of assistants may appear plural while inheriting correlated assumptions from a small number of models. That matters for public reasoning, institutional decisions and the power to define which possibilities appear reasonable.</p></article>
+            <article><span>SOCIETY</span><h3>Which experiences survive compression?</h3><p>Low-frequency languages, situated knowledge and minority explanations may be especially easy to lose. Social diversity and epistemic diversity are not identical, but neither can be treated as irrelevant to the other.</p></article>
+            <article><span>PHILOSOPHY</span><h3>What makes one mind different from another?</h3><p>Is individuality a voice, a memory, a history, a stable way of questioning—or something else entirely? Behavioral differentiation cannot establish consciousness, but it can sharpen what we mean when we count models, personas and conversations as distinct agents.</p></article>
+          </div>
+          <p className="ecology-boundary"><strong>Two layers, kept distinct:</strong> the pilot produces a limited empirical result; the wider programme asks what such results could mean for digital identity and for human–AI knowledge ecosystems.</p>
+        </div>
+      </section>
+
       <section id="results" className="section shell">
         <div className="section-head">
-          <div><p className="eyebrow">01 · Measurement</p><h2>Results observatory</h2></div>
+          <div><p className="eyebrow">02 · Measurement</p><h2>Results observatory</h2></div>
           <div className="dataset-controls">
             <button className={view === "demo" ? "active" : ""} onClick={() => setView("demo")}>Simulated demo</button>
             <button className={view === "live" ? "active" : ""} onClick={() => setView("live")}>Live data <b>{trials.length}</b></button>
@@ -227,7 +245,7 @@ export function ExperimentApp() {
       </section>
 
       <section id="lab" className="lab-section">
-        <div className="shell section-head light"><div><p className="eyebrow">02 · Collection</p><h2>Pilot lab</h2></div><p>One prompt. One fresh chat. One structured observation.</p></div>
+        <div className="shell section-head light"><div><p className="eyebrow">03 · Collection</p><h2>Pilot lab</h2></div><p>One prompt. One fresh chat. One structured observation.</p></div>
         <div className="shell lab-grid">
           <div className="lab-controls">
             <label>Condition<select value={conditionId} onChange={(event) => changeCondition(event.target.value as ConditionId)}>{conditions.map((condition) => <option key={condition.id} value={condition.id}>{condition.label}</option>)}</select></label>
@@ -257,7 +275,7 @@ export function ExperimentApp() {
       </section>
 
       <section id="protocol" className="section shell protocol">
-        <div className="section-head"><div><p className="eyebrow">03 · Research design</p><h2>A small, falsifiable pilot</h2></div><p>Primary track: Assistant Persona & Model Identity</p></div>
+        <div className="section-head"><div><p className="eyebrow">04 · Research design</p><h2>A small, falsifiable pilot</h2></div><p>Primary track: Assistant Persona & Model Identity</p></div>
         <div className="protocol-grid">
           <article><span>1</span><h3>Hold the model fixed</h3><p>Compare ordinary sampling, explicit personas, and formative histories without changing the underlying model.</p></article>
           <article><span>2</span><h3>Remove the costume</h3><p>Measure structured choices—not prose style: ranked hypotheses, uncertainty, and selected experiments.</p></article>
@@ -274,7 +292,7 @@ export function ExperimentApp() {
       <section id="references" className="section references-section">
         <div className="shell">
           <div className="section-head">
-            <div><p className="eyebrow">04 · Context</p><h2>Why ask this now?</h2></div>
+            <div><p className="eyebrow">05 · Context</p><h2>Why ask this now?</h2></div>
             <p>The evidence does not point in only one direction. That is exactly why the question needs experiments.</p>
           </div>
           <div className="context-grid">
