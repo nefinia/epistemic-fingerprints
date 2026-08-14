@@ -29,6 +29,16 @@ jupyter notebook notebooks/epistemic_fingerprints_analysis.ipynb
 
 By default the notebook uses an explicitly simulated 54-trial dataset so the full pipeline runs immediately. Set `DATA_PATH` to a JSON file exported by the web lab to analyze empirical observations. The analysis functions live in `analysis/pipeline.py` and can also be imported into scripts.
 
+## Pilot report
+
+The submission-ready pilot report is available at [`output/pdf/epistemic-fingerprints-pilot-report.pdf`](output/pdf/epistemic-fingerprints-pilot-report.pdf). It is intentionally framed as a protocol and open research artifact until empirical trial collection is complete.
+
+Rebuild it with:
+
+```bash
+python tools/build_submission_pdf.py
+```
+
 ## Run locally
 
 ```bash
