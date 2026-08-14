@@ -121,9 +121,11 @@ export function ExperimentApp() {
       <nav className="nav shell" aria-label="Project navigation">
         <a className="wordmark" href="#top"><span>EF</span> Epistemic Fingerprints</a>
         <div className="nav-links">
+          <a href="#idea">The idea</a>
           <a href="#results">Results</a>
           <a href="#lab">Run a trial</a>
           <a href="#protocol">Protocol</a>
+          <a href="#references">References</a>
         </div>
         <span className="status"><i /> Pilot · 2026</span>
       </nav>
@@ -155,6 +157,25 @@ export function ExperimentApp() {
           <blockquote>Can we recognize an agent by <em>how it explores</em>—even after we remove its voice and name?</blockquote>
           <span>Epistemic individuality is not evidence of consciousness. It is one behavioral dimension relevant to individuation.</span>
         </div>
+      </section>
+
+      <section id="idea" className="section shell idea-section">
+        <div className="section-head">
+          <div><p className="eyebrow">00 · The idea</p><h2>More output is not necessarily more exploration</h2></div>
+          <p>This pilot begins with epistemic diversity, then asks what it can tell us about digital minds.</p>
+        </div>
+        <div className="idea-grid">
+          <div className="idea-statement">
+            <p>AI lets us generate vastly more papers, hypotheses, designs and arguments. But are we exploring more of the space of possible ideas—or producing more variations around the same conceptual centers?</p>
+            <p>The concern is not that humans are creative and AI is not. The interesting unit is the whole human–AI knowledge ecosystem: the models, people, institutions, observations and feedback loops through which ideas are produced and selected.</p>
+          </div>
+          <div className="idea-points">
+            <article><span>01</span><div><h3>Apparent plurality</h3><p>Many agents can differ in voice while relying on the same assumptions, favoring the same hypotheses and making the same mistakes.</p></div></article>
+            <article><span>02</span><div><h3>Epistemic plurality</h3><p>A stronger kind of difference would persist across tasks: what an agent notices, doubts, preserves as possible and chooses to test.</p></div></article>
+            <article><span>03</span><div><h3>The empirical move</h3><p>Hold the model fixed, vary how candidate agents are formed, remove stylistic cues and compare their structured scientific choices.</p></div></article>
+          </div>
+        </div>
+        <aside className="scope-note"><strong>The larger question</strong><p>Could the number of apparent cognitive agents increase dramatically while effective epistemic diversity decreases? This weekend study cannot answer that. It builds one small instrument for investigating it.</p></aside>
       </section>
 
       <section id="results" className="section shell">
@@ -194,8 +215,15 @@ export function ExperimentApp() {
               </div>
             ))}
           </div>
-          <p className="chart-note"><b>Fingerprint strength</b> is a provisional variance ratio across confidence, breadth, test informativeness, and accuracy. It is a pilot measure—not a validated identity test.</p>
+          <p className="chart-note"><b>How to read Figure 1:</b> compare rows across the four columns; no single bar means “better.” In demo mode, every bar is simulated to show what the finished comparison will look like. Switch to Live data to see recorded observations.</p>
         </div>
+        <div className="figure-guide" aria-label="Explanation of Figure 1 metrics">
+          <article><span>01</span><h3>Fingerprint strength</h3><p>Are differences between candidate agents larger than variation within each agent across repeated trials? Higher means a more stable trace, not a more conscious mind.</p></article>
+          <article><span>02</span><h3>Hypothesis diversity</h3><p>How widely does a condition distribute its primary hypotheses? Higher means more alternatives are represented across the population.</p></article>
+          <article><span>03</span><h3>Accuracy</h3><p>How often is the keyed explanation selected? Diversity without contact with truth can simply be noise, so exploration and performance are shown separately.</p></article>
+          <article><span>04</span><h3>Shared-error concentration</h3><p>When agents are wrong, do they choose the same wrong answer? Higher concentration suggests correlated blind spots and therefore less epistemic independence.</p></article>
+        </div>
+        <p className="method-caveat"><strong>Important:</strong> these are descriptive pilot measures, not validated psychometric scales. With only 54 planned observations, the study is designed to reveal useful patterns and failure modes—not establish a general theory of digital identity.</p>
       </section>
 
       <section id="lab" className="lab-section">
@@ -240,6 +268,33 @@ export function ExperimentApp() {
           <p>PRIMARY RESEARCH QUESTION</p>
           <h3>Does conversational history create a more stable epistemic fingerprint than a prompted persona—or ordinary stochastic sampling?</h3>
           <div><span>H₀</span><p>Between-agent variation does not exceed within-agent variation.</p><span>H₁</span><p>At least one intervention creates a persistent, cross-task epistemic trace.</p></div>
+        </div>
+      </section>
+
+      <section id="references" className="section references-section">
+        <div className="shell">
+          <div className="section-head">
+            <div><p className="eyebrow">04 · Context</p><h2>Why ask this now?</h2></div>
+            <p>The evidence does not point in only one direction. That is exactly why the question needs experiments.</p>
+          </div>
+          <div className="context-grid">
+            <p>Recursive training can erode the tails of a distribution; populations built from different language models may resist some forms of knowledge collapse; and generative tools can make a group&apos;s creative output more homogeneous.</p>
+            <p>But AI-generated ideas can also increase collective diversity under some conditions. The useful question is not whether AI is intrinsically homogenizing. It is <em>when</em> human–AI systems expand conceptual space, when they contract it, and what interventions change the outcome.</p>
+          </div>
+          <ol className="reference-list">
+            <li><span>2024</span><div><a href="https://www.nature.com/articles/s41586-024-07566-y" target="_blank" rel="noreferrer">Shumailov et al. · AI models collapse when trained on recursively generated data ↗</a><p>Distributional degradation under recursive training on generated data. <i>Nature</i>.</p></div></li>
+            <li><span>2024</span><div><a href="https://proceedings.mlr.press/v235/hughes24a.html" target="_blank" rel="noreferrer">Hughes et al. · Open-Endedness is Essential for Artificial Superhuman Intelligence ↗</a><p>Why continually producing new challenges and possibilities may be central to advanced intelligence.</p></div></li>
+            <li><span>2024</span><div><a href="https://arxiv.org/abs/2401.13481" target="_blank" rel="noreferrer">Ashkinaze et al. · AI ideas and collective idea diversity ↗</a><p>Counterevidence showing that exposure to AI-generated ideas can increase collective diversity in some settings.</p></div></li>
+            <li><span>2025</span><div><a href="https://arxiv.org/abs/2510.04226" target="_blank" rel="noreferrer">Wright et al. · Epistemic Diversity and Knowledge Collapse in LLMs ↗</a><p>An operational account of epistemic diversity in model-generated information.</p></div></li>
+            <li><span>2025</span><div><a href="https://arxiv.org/abs/2512.15011" target="_blank" rel="noreferrer">Hodel &amp; West · Epistemic diversity across LMs mitigates knowledge collapse ↗</a><p>How heterogeneous model populations may make knowledge ecosystems more resilient.</p></div></li>
+            <li><span>2026</span><div><a href="https://research.tilburguniversity.edu/en/publications/generative-ai-makes-creative-output-more-homogeneous/" target="_blank" rel="noreferrer">de Rooij &amp; Biskjaer · Generative AI Makes Creative Output More Homogeneous ↗</a><p>Individual creative gains alongside reduced variation across a population of outputs.</p></div></li>
+          </ol>
+          <div className="invitation">
+            <p className="eyebrow">A LONGER INQUIRY</p>
+            <h3>This is a beginning, not just a hackathon project.</h3>
+            <p>I&apos;m interested in improving the experiment, exchanging ideas and connecting it to a broader interdisciplinary inquiry into epistemic diversity—in AI, science, culture and collective intelligence. Criticism, references, replications and contributions are welcome.</p>
+            <a className="button primary" href="https://github.com/nefinia/epistemic-fingerprints" target="_blank" rel="noreferrer">Contribute on GitHub <span>↗</span></a>
+          </div>
         </div>
       </section>
 

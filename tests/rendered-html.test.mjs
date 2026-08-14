@@ -22,5 +22,8 @@ test("server-renders the Epistemic Fingerprints research app", async () => {
   assert.match(html, /Results observatory/);
   assert.match(html, /Pilot lab/);
   assert.match(html, /Simulated demo/);
+  assert.match(html, /More output is not necessarily more exploration/);
+  assert.match(html, /How to read Figure 1/);
+  assert.match(html, /Shumailov et al/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);
 });

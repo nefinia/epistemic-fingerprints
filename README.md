@@ -16,6 +16,19 @@ The project does **not** treat behavioral individuality as evidence of conscious
 
 The live dashboard calculates descriptive accuracy, hypothesis diversity, shared-error concentration, and a provisional epistemic fingerprint strength. The included simulated dataset is visibly labeled and exists only to demonstrate the interface.
 
+## Reproduce the analysis
+
+The repository includes both a runnable Jupyter notebook and reusable Python analysis code. The notebook validates a JSON export from the web lab, checks experimental coverage, calculates the four Figure 1 metrics, and generates the comparison plot.
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements-analysis.txt
+jupyter notebook notebooks/epistemic_fingerprints_analysis.ipynb
+```
+
+By default the notebook uses an explicitly simulated 54-trial dataset so the full pipeline runs immediately. Set `DATA_PATH` to a JSON file exported by the web lab to analyze empirical observations. The analysis functions live in `analysis/pipeline.py` and can also be imported into scripts.
+
 ## Run locally
 
 ```bash
