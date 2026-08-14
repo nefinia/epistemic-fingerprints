@@ -159,10 +159,10 @@ def build_story():
     cover_meta = ParagraphStyle("CoverMeta", parent=SMALL, textColor=WHITE, fontSize=7.5, leading=12)
 
     story += [Spacer(1, 18 * mm), P("DIGITAL MINDS x EPISTEMIC DIVERSITY", cover_eyebrow), AccentRule(32 * mm, CORAL, 3), Spacer(1, 8 * mm)]
-    story += [P("Epistemic<br/>Fingerprints", cover_title), P("Epistemic individuality as an empirical probe of digital minds", cover_sub)]
+    story += [P("Epistemic<br/>Fingerprints", cover_title)]
     story += [Spacer(1, 2 * mm), P("<b>Many agents. How many minds?</b>", ParagraphStyle("CoverQuestion", parent=cover_body, fontSize=14, leading=18, textColor=CORAL)), Spacer(1, 8 * mm)]
     abstract_box = Table([[P("ABSTRACT", cover_eyebrow), P(
-        "AI systems can produce populations of apparently different agents, but surface plurality may not imply epistemic plurality. This pilot tests whether repeated instances, prompted personas, and different conversational histories produce stable differences in scientific hypothesis choice, uncertainty, and experiment selection. Candidate agents solve three synthetic mysteries using a controlled JSON format that removes stylistic cues. The study compares within-agent and between-agent variation, hypothesis diversity, accuracy, test informativeness, and shared-error concentration. Epistemic individuality is treated as one behavioral dimension relevant to digital-mind individuation - not as evidence of consciousness or moral status. The project contributes a falsifiable protocol, a browser collection instrument, and a reproducible notebook. Empirical collection is pending; simulated interface values only test the pipeline.", cover_body)]], colWidths=[29 * mm, 125 * mm])
+        "AI systems can produce populations of apparently different agents, but surface plurality may not imply epistemic plurality. This pilot tests whether repeated instances, prompted personas, and different conversational histories produce stable differences in hypothesis choice, uncertainty, and experiment selection. It treats epistemic individuality as one behavioral dimension relevant to digital-mind individuation - not as evidence of consciousness or moral status. A manual web lab and a seeded open-model runner provide complementary collection paths. The longer inquiry asks how shared cognitive infrastructure shapes the conceptual space available to science, art, politics and society. Empirical collection is pending; simulated interface values only test the pipeline.", cover_body)]], colWidths=[29 * mm, 125 * mm])
     abstract_box.setStyle(TableStyle([
         ("BOX", (0, 0), (-1, -1), 0.7, colors.Color(1, 1, 1, alpha=0.25)),
         ("BACKGROUND", (0, 0), (-1, -1), colors.Color(1, 1, 1, alpha=0.04)),
@@ -185,9 +185,12 @@ def build_story():
     story += [Spacer(1, 4 * mm), card_grid([
         ("01", "Surface diversity", "Different voices, personalities or phrasings can conceal shared assumptions and correlated failures.", BLUE),
         ("02", "Epistemic diversity", "Differences concern what is noticed, doubted, retained as possible and chosen for testing.", CORAL),
-        ("03", "Ecological diversity", "Innovation may depend on populations, niches and variation - not only on individual performance.", LIME),
+        ("03", "Collective diversity", "Innovation may depend on populations and variation - not only on individual performance.", LIME),
     ]), Spacer(1, 8 * mm)]
-    story += [P("Connection to digital minds", H2), P("The Digital Minds research agenda asks what constitutes an individual digital mind: a foundation model, an inference instance, a persona, a conversation, or another unit. Epistemic independence offers an empirical probe of that individuation problem. If two nominal minds repeatedly use the same conceptual structures and make the same errors, in what sense are they independent cognitive agents? Conversely, if a persona or history creates a persistent, cross-task epistemic trace, that is evidence of behavioral differentiation - while remaining neutral about consciousness.")]
+    story += [P("Connection to digital minds", H2), P("The Digital Minds research agenda asks what constitutes an individual digital mind: a foundation model, an inference instance, a persona, a conversation, or another unit. Epistemic independence offers an empirical probe of that individuation problem. If two nominal minds repeatedly use the same conceptual structures and make the same errors, in what sense are they independent cognitive agents? Conversely, if a persona or history creates a persistent, cross-task epistemic trace, that is evidence of behavioral differentiation - while remaining neutral about consciousness."),
+              P("The wider inquiry", H2),
+              P("The experiment is intentionally narrow, but the question around it is not. If a small number of models increasingly mediate how people write, imagine, research and decide, epistemic diversity becomes a question about culture and power as well as model behavior."),
+              P("The longer programme connects <b>art</b> (making absence perceptible), <b>politics</b> (who shapes cognitive infrastructure), <b>society</b> (which knowledge is lost) and <b>philosophy</b> (what makes one mind distinct).", SMALL)]
 
     story.append(PageBreak())
     story += section("02", "Research questions and hypotheses")
@@ -210,7 +213,7 @@ def build_story():
     story += [P("Hypotheses", H2), hypotheses, Spacer(1, 7 * mm), P("The ordering of conditions is not assumed in advance. A null result remains informative: it would constrain claims that prompted personas or short conversational histories create meaningfully distinct epistemic agents. A detectable fingerprint would indicate behavioral differentiation only; it would not establish subjective experience, personhood, welfare, or moral status.")]
 
     story.append(PageBreak())
-    story += section("03", "Experimental design", "A deliberately small design that can be completed with subscription access and audited by collaborators.")
+    story += section("03", "Experimental design", "A deliberately small design with complementary manual and reproducible open-model collection paths.")
     condition_data = [
         [P("CONDITION", EYEBROW), P("CANDIDATE AGENTS", EYEBROW), P("INTERVENTION", EYEBROW)],
         [P("Repeated instances", H3), P("N-01 / N-02 / N-03", SMALL), P("Identical neutral instruction; independent fresh conversations.", SMALL)],
@@ -241,7 +244,7 @@ def build_story():
         ("ALIGN", (0, 0), (-1, -1), "CENTER"), ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
         ("TOPPADDING", (0, 0), (-1, 0), 9), ("BOTTOMPADDING", (0, 1), (-1, 1), 8),
     ]))
-    story += [P("Minimum pilot", H2), sample_table, Spacer(1, 6 * mm), P("Controls", H2), P("The underlying model, task wording and interface should be held fixed. Every replicate begins in a fresh conversation. The model label, date, interface and visible sampling settings are recorded. The answer key and previous responses must never appear in a trial prompt.")]
+    story += [P("Minimum pilot", H2), sample_table, Spacer(1, 6 * mm), P("Controls and collection", H2), P("The underlying model, task wording and interface should be held fixed. Every replicate begins in a fresh conversation. The model label, date, interface and visible sampling settings are recorded. The answer key and previous responses must never appear in a trial prompt. The manual web lab provides accessible subscription-interface collection; a second Modal/vLLM path runs the same design on one declared open-weight model with fixed sampling parameters and per-trial seeds. The datasets are reported separately because model and interface differences are part of the provenance.", SMALL)]
 
     story.append(PageBreak())
     story += section("04", "Measures and analysis", "Figure 1 compares conditions without collapsing exploration, performance and correlated failure into one score.")
@@ -294,7 +297,7 @@ def build_story():
 
     story.append(PageBreak())
     story += section("06", "Open research artifact and references")
-    story += [P("Open artifact", H2), P("The collection instrument, protocol, reusable Python pipeline and runnable Jupyter notebook are public. Trial data remain in the collector's browser until deliberately exported."),
+    story += [P("Open artifact", H2), P("The collection instrument, protocol, reusable Python pipeline, runnable Jupyter notebook and Modal/vLLM batch runner are public. Manual trial data remain in the collector's browser until deliberately exported; open-model runs record model, GPU, sampling parameters, seeds, raw outputs and parse failures."),
               Table([
                   [P("LIVE INSTRUMENT", EYEBROW), P("<link href='https://epistemic-fingerprints.nefinia.chatgpt.site'>epistemic-fingerprints.nefinia.chatgpt.site</link>", LINK)],
                   [P("CODE + NOTEBOOK", EYEBROW), P("<link href='https://github.com/nefinia/epistemic-fingerprints'>github.com/nefinia/epistemic-fingerprints</link>", LINK)],
@@ -324,7 +327,7 @@ def build():
     doc = BaseDocTemplate(
         str(OUTPUT), pagesize=A4, leftMargin=23 * mm, rightMargin=23 * mm,
         topMargin=23 * mm, bottomMargin=20 * mm,
-        title="Epistemic Fingerprints: Epistemic individuality as an empirical probe of digital minds",
+        title="Epistemic Fingerprints",
         author="Sofia Gallego",
         subject="Pilot report for the Apart Research Digital Minds Research Sprint",
     )

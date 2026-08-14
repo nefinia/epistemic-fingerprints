@@ -192,7 +192,7 @@ export function ExperimentApp() {
             <article><span>SOCIETY</span><h3>Which experiences survive compression?</h3><p>Low-frequency languages, situated knowledge and minority explanations may be especially easy to lose. Social diversity and epistemic diversity are not identical, but neither can be treated as irrelevant to the other.</p></article>
             <article><span>PHILOSOPHY</span><h3>What makes one mind different from another?</h3><p>Is individuality a voice, a memory, a history, a stable way of questioning—or something else entirely? Behavioral differentiation cannot establish consciousness, but it can sharpen what we mean when we count models, personas and conversations as distinct agents.</p></article>
           </div>
-          <p className="ecology-boundary"><strong>Two layers, kept distinct:</strong> the pilot produces a limited empirical result; the wider programme asks what such results could mean for digital identity and for human–AI knowledge ecosystems.</p>
+          <p className="ecology-boundary"><strong>Two layers, kept distinct:</strong> the pilot produces a limited empirical result; the wider programme asks what such results could mean for digital identity and for the diversity of ideas in human–AI systems.</p>
         </div>
       </section>
 
@@ -282,6 +282,11 @@ export function ExperimentApp() {
           <article><span>3</span><h3>Look for persistence</h3><p>Ask whether differences recur across unrelated mysteries and exceed ordinary within-agent variation.</p></article>
           <article><span>4</span><h3>Keep null results valuable</h3><p>If personas or histories leave no stable trace, that constrains claims about instance-level individuality.</p></article>
         </div>
+        <div className="collection-paths">
+          <div><p className="eyebrow">TWO COMPLEMENTARY PATHS</p><h3>Accessible collection and experimental control</h3></div>
+          <article><span>WEB LAB</span><p>The manual path uses a subscription interface and records its visible model label. It is accessible and close to ordinary use, but model versions and sampling controls may remain partly hidden.</p></article>
+          <article><span>OPEN MODEL</span><p>The Modal runner executes the same 54 trials on one declared open-weight model, recording the GPU, sampling parameters, seeds, raw outputs and parse failures. The two datasets remain separate.</p><a href="https://github.com/nefinia/epistemic-fingerprints/blob/codex/writing-persona/experiments/modal_batch.py" target="_blank" rel="noreferrer">View the runner ↗</a></article>
+        </div>
         <div className="hypothesis">
           <p>PRIMARY RESEARCH QUESTION</p>
           <h3>Does conversational history create a more stable epistemic fingerprint than a prompted persona—or ordinary stochastic sampling?</h3>
@@ -310,7 +315,7 @@ export function ExperimentApp() {
           <div className="invitation">
             <p className="eyebrow">A LONGER INQUIRY</p>
             <h3>This is a beginning, not just a hackathon project.</h3>
-            <p>I&apos;m interested in improving the experiment, exchanging ideas and connecting it to a broader interdisciplinary inquiry into epistemic diversity—in AI, science, culture and collective intelligence. Criticism, references, replications and contributions are welcome.</p>
+            <p>I&apos;m interested in what happens when many apparent voices begin to rely on the same cognitive infrastructure. The next questions are scientific, but also artistic, political, social and philosophical: how can we perceive what is absent, who shapes the space of plausible ideas, which forms of knowledge survive compression, and what makes one mind genuinely different from another? I&apos;m very open to exchanging ideas and improving the project. Criticism, references, replications and contributions are welcome.</p>
             <a className="button primary" href="https://github.com/nefinia/epistemic-fingerprints" target="_blank" rel="noreferrer">Contribute on GitHub <span>↗</span></a>
           </div>
         </div>

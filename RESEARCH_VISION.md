@@ -1,10 +1,10 @@
-# From epistemic fingerprints to epistemic ecology
+# Epistemic Fingerprints: a longer research direction
 
 AI can multiply the number of texts, images, arguments and apparent agents around us. I am interested in a more difficult question: does this multiplication also enlarge the space of ideas we are able to explore?
 
 Epistemic Fingerprints begins with a deliberately small experiment. It asks whether candidate agents produced from one model—through independent sampling, prompted personas or different conversational histories—develop stable differences in the hypotheses they prefer, the uncertainty they express and the experiments they choose. This does not tell us whether a system is conscious. It gives us one way to test whether apparent plurality corresponds to a persistent difference in how possibilities are explored.
 
-I see this pilot as the empirical nucleus of a longer interdisciplinary programme. The object is not the isolated model alone, but an epistemic ecology: models, people, institutions, interfaces, languages, observations and feedback loops through which societies decide what is plausible, visible and worth testing.
+I see this pilot as the empirical nucleus of a longer interdisciplinary programme. The object is not the isolated model alone, but the wider system: models, people, institutions, interfaces, languages, observations and feedback loops through which societies decide what is plausible, visible and worth testing.
 
 ## Art: giving form to conceptual absence
 

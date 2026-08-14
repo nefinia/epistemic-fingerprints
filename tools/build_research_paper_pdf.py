@@ -122,10 +122,10 @@ def build_story():
     cover_body = ParagraphStyle("DeepCoverBody", parent=PAPER_BODY, fontSize=8.2, leading=12.2, textColor=colors.HexColor("#C8CFDC"))
     cover_meta = ParagraphStyle("DeepCoverMeta", parent=PAPER_SMALL, fontSize=7, leading=10.5, textColor=WHITE)
     story += [Spacer(1, 15 * mm), P("TRACK 5: ASSISTANT PERSONA & MODEL IDENTITY", cover_eye), AccentRule(42 * mm, CORAL, 3), Spacer(1, 7 * mm)]
-    story += [P("Epistemic<br/>Fingerprints", cover_title), P("From apparent plurality to epistemic individuation in digital minds", cover_sub)]
+    story += [P("Epistemic<br/>Fingerprints", cover_title)]
     story += [P("Many agents. How many minds?", ParagraphStyle("DeepQuestion", parent=cover_sub, fontName=FONT_BOLD, fontSize=13, textColor=CORAL)), Spacer(1, 5 * mm)]
     abstract = Table([
-        [P("ABSTRACT", cover_eye), P("Large language models can instantiate many apparently distinct agents, yet behavioral plurality may be largely cosmetic if those agents reproduce the same hypotheses, assumptions and errors. This paper introduces <i>epistemic fingerprints</i>: stable, task-general patterns in hypothesis selection, uncertainty, retained alternatives and experiment choice. We propose a controlled pilot comparing three ways of generating candidate agents from one underlying model: independent sampling, prompted epistemic personas and different formative histories. Agents solve synthetic scientific mysteries through a structured response format that suppresses stylistic cues. The analysis separates diversity from quality and tests whether between-agent variation exceeds within-agent variation across tasks. The contribution is methodological and conceptual: epistemic independence becomes an operational probe of the model-instance-persona-conversation individuation problem. It is not presented as evidence of consciousness or moral status. The project includes a live collection instrument and reproducible analysis pipeline. Empirical collection is pending; simulated interface data are never treated as findings.", cover_body)],
+        [P("ABSTRACT", cover_eye), P("Large language models can instantiate many apparently distinct agents, yet behavioral plurality may be largely cosmetic if those agents reproduce the same hypotheses, assumptions and errors. This paper introduces <i>epistemic fingerprints</i>: stable patterns in hypothesis selection, uncertainty, retained alternatives and experiment choice. A controlled pilot compares independent sampling, prompted epistemic personas and different formative histories within one model. Structured scientific tasks suppress stylistic cues and separate diversity from quality. Epistemic independence becomes an operational probe of the model-instance-persona-conversation individuation problem, without being treated as evidence of consciousness or moral status. A manual web lab and seeded open-model runner support complementary collection. The wider programme asks how models, people, institutions, languages and cultural practices shape the conceptual space available to science and society. Empirical collection is pending; simulated interface data are never treated as findings.", cover_body)],
     ], colWidths=[26 * mm, 137 * mm])
     abstract.setStyle(TableStyle([
         ("BOX", (0, 0), (-1, -1), 0.7, colors.Color(1, 1, 1, alpha=0.24)),
@@ -162,7 +162,7 @@ def build_story():
         [P("Epistemic independence", PAPER_H3), PB("Decorrelation and persistence of epistemic behavior across tasks.", PAPER_SMALL), PB("Distinguishes a varied population from a population whose errors and conceptual omissions remain shared.", PAPER_SMALL)],
     ], [36 * mm, 57 * mm, 79 * mm])
     story += [taxonomy, Spacer(1, 6 * mm)]
-    story += [P("An ecological rather than maximalist view", PAPER_H2), PB("The aim is not maximum diversity. Scientific progress needs convergence: evidence should eliminate hypotheses, and consensus can encode real learning. Unbounded novelty without selection becomes noise. Following work that separates the variety, balance and disparity of a system [9], the more useful question is what kinds and levels of epistemic diversity allow knowledge-producing systems to remain innovative, calibrated and responsive to reality."),
+    story += [P("A population-level rather than maximalist view", PAPER_H2), PB("The aim is not maximum diversity. Scientific progress needs convergence: evidence should eliminate hypotheses, and consensus can encode real learning. Unbounded novelty without selection becomes noise. Following work that separates the variety, balance and disparity of a system [9], the more useful question is what kinds and levels of epistemic diversity allow knowledge-producing systems to remain innovative, calibrated and responsive to reality."),
               PB("This motivates a two-axis evaluation. <b>Exploration</b> asks how much of the hypothesis space is covered and how decorrelated agents are. <b>Epistemic quality</b> asks whether hypotheses are accurate, confidence is calibrated and chosen experiments are informative. A system can score high on either axis and low on the other."),
               dense_cards([
                   ("I", "Narrow + accurate", "Efficient on familiar tasks, but potentially brittle to shared blind spots.", BLUE),
@@ -173,14 +173,14 @@ def build_story():
 
     story.append(PageBreak())
     story += heading("03", "Related work and the research gap")
-    story += [P("Knowledge collapse and model ecosystems", PAPER_H2), PB("Shumailov et al. show that recursive training on model-generated data can distort learned distributions and disproportionately erase tails [1]. Hodel and West extend the ecological framing: heterogeneous model populations retain long-run performance better than an AI monoculture across self-training iterations [4]. Wright et al. operationalize epistemic diversity as variation in real-world claims and report that, across their topics and models, LLM outputs remain less epistemically diverse than a basic web-search baseline [3]. These studies establish ecosystem-level stakes, but they do not identify when nominal agents derived from one model become meaningfully distinct epistemic units."),
+    story += [P("Knowledge collapse and model ecosystems", PAPER_H2), PB("Shumailov et al. show that recursive training on model-generated data can distort learned distributions and disproportionately erase tails [1]. Hodel and West show that heterogeneous model populations retain long-run performance better than an AI monoculture across self-training iterations [4]. Wright et al. operationalize epistemic diversity as variation in real-world claims and report that, across their topics and models, LLM outputs remain less epistemically diverse than a basic web-search baseline [3]. These studies establish ecosystem-level stakes, but they do not identify when nominal agents derived from one model become meaningfully distinct epistemic units."),
               P("Creativity and collective diversity", PAPER_H2), PB("Evidence about generative AI and diversity is mixed rather than uniformly negative. A systematic review and meta-analysis by de Rooij and Biskjaer finds homogenization across outputs in human-AI co-creation despite possible individual gains [5]. Ashkinaze et al., however, find that high exposure to AI-generated ideas increased collective idea diversity in a dynamic experiment, without improving individual creativity [6]. The direction of the effect depends on task, exposure and population process. This supports measuring population-level distributions rather than inferring collective diversity from individual fluency."),
-              P("Diversity in collective inquiry", PAPER_H2), PB("Social epistemology and collective-intelligence research treats disagreement and heterogeneity as potentially productive under specific network and problem conditions. Transient diversity can improve group inquiry by delaying premature convergence [8], and cognitively diverse problem-solvers can outperform homogeneous groups of individually high performers in some formal settings [10]. Stirling's framework emphasizes variety, balance and disparity as separable dimensions of diversity [9]. The present study translates this ecological logic into a small behavioral assay for digital-agent populations."),
+              P("Diversity in collective inquiry", PAPER_H2), PB("Social epistemology and collective-intelligence research treats disagreement and heterogeneity as potentially productive under specific network and problem conditions. Transient diversity can improve group inquiry by delaying premature convergence [8], and cognitively diverse problem-solvers can outperform homogeneous groups of individually high performers in some formal settings [10]. Stirling's framework emphasizes variety, balance and disparity as separable dimensions of diversity [9]. The present study translates this population-level logic into a small behavioral assay for digital-agent populations."),
               P("Digital-mind individuation", PAPER_H2), PB("The sprint's Assistant Persona & Model Identity track asks how persona relates to the underlying model and explicitly invites experiments that distinguish model, instance, persona and conversation [11]. Self-report can reveal how a model describes itself, but it is vulnerable to character performance and framing. Epistemic fingerprints add a complementary method: suppress self-description and stylistic cues, then test whether structured choices remain differentiated across tasks."),
               compact_callout("Gap", "We lack a simple empirical test of whether persona and conversational history create persistent epistemic differentiation beyond ordinary sampling from the same model.", colors.HexColor("#E8EAFD"), BLUE)]
 
     story.append(PageBreak())
-    story += heading("04", "Research questions and falsifiable predictions")
+    story += heading("04", "Research questions")
     story += [compact_callout("Primary RQ", "Does conversational history create a more stable cross-task epistemic fingerprint than a prompted persona or ordinary stochastic sampling?", WHITE, CORAL), Spacer(1, 5 * mm)]
     hypotheses = methods_table([
         [P("ID", EYEBROW), P("STATEMENT", EYEBROW), P("EVIDENCE PATTERN", EYEBROW)],
@@ -218,7 +218,9 @@ def build_story():
               paper_bullet("Create every replicate in a fresh conversation; never reveal the answer key or prior outputs."),
               paper_bullet("Keep model, interface, task order policy and visible sampling settings fixed and record their labels."),
               paper_bullet("Use one controlled prompt and require valid JSON to minimize stylistic confounding."),
-              paper_bullet("Export the browser-local dataset after each session and preserve raw outputs for audit."),
+              paper_bullet("Treat the manual subscription-interface run and the seeded open-model Modal run as distinct datasets."),
+              paper_bullet("For open-model trials, record model, GPU, sampling parameters, seed, raw output and parse failures."),
+              paper_bullet("Export the browser-local dataset after each manual session and preserve raw outputs for audit."),
               paper_bullet("Target 54 complete trials; mark protocol deviations rather than silently replacing them.")]
 
     story.append(PageBreak())
@@ -291,11 +293,17 @@ def build_story():
                   ("NEXT 5", "Languages and cultures", "Test whether epistemic coverage changes across linguistic and cultural contexts.", CORAL),
                   ("NEXT 6", "Longitudinal identity", "Study persistent agents whose memory and experience accumulate over weeks rather than prompts.", LIME),
               ]), Spacer(1, 5 * mm), P("A broader framing", PAPER_H2), PB("The deeper question extends beyond AI. Scientific and cultural innovation may be ecological properties of populations rather than traits located solely inside individuals. Institutions need enough convergence to accumulate knowledge and enough variation to avoid premature closure. Generative AI makes this balance newly urgent because a small number of models can become shared cognitive infrastructure across domains. The appropriate target is therefore neither maximum novelty nor protectionism about human creativity. It is the design of knowledge ecosystems that explore widely, test rigorously and retain the capacity to surprise themselves."),
-              compact_callout("Long-term question", "How does the composition of populations of human and artificial cognitive agents change the conceptual space that collective intelligence can explore?", colors.HexColor("#EAF6D5"), LIME)]
+              P("Four implications of epistemic diversity", PAPER_H2),
+              dense_cards([
+                  ("ART", "Make absence perceptible", "An epistemic atlas can reveal repeated metaphors, familiar futures and conceptual regions that no agent enters.", BLUE),
+                  ("POLITICS", "Audit cognitive concentration", "Many interfaces may conceal dependence on a small number of models, assumptions and correlated errors.", CORAL),
+                  ("SOCIETY", "Protect situated knowledge", "Languages, disciplines and lived conditions shape what is noticed; low-frequency possibilities may be easiest to erase.", LIME),
+                  ("PHILOSOPHY", "Refine individuation", "Stable epistemic behavior can distinguish performed character from persistent organization without deciding consciousness.", BLUE),
+              ], columns=2)]
 
     story.append(PageBreak())
     story += heading("10", "Current status, open artifacts and references")
-    story += [compact_callout("Status", "Protocol, web instrument and reproducible pipeline are complete. Empirical trials are not yet reported. The simulated dashboard exists only to test the interface.", colors.HexColor("#FCE1DA"), CORAL), Spacer(1, 5 * mm)]
+    story += [compact_callout("Status", "Protocol, web instrument, analysis pipeline and seeded Modal/vLLM runner are complete. Empirical trials are not yet reported. The simulated dashboard exists only to test the interface.", colors.HexColor("#FCE1DA"), CORAL), Spacer(1, 5 * mm)]
     links = methods_table([
         [P("ARTIFACT", EYEBROW), P("LINK", EYEBROW), P("CONTENTS", EYEBROW)],
         [P("Live instrument", PAPER_H3), P("<link href='https://epistemic-fingerprints.nefinia.chatgpt.site'>epistemic-fingerprints.nefinia.chatgpt.site</link>", LINK), PB("Prompts, local trial recording and live descriptive dashboard.", PAPER_SMALL)],
@@ -333,7 +341,7 @@ def build():
     doc = BaseDocTemplate(
         str(OUTPUT), pagesize=A4, leftMargin=19 * mm, rightMargin=19 * mm,
         topMargin=21 * mm, bottomMargin=18 * mm,
-        title="Epistemic Fingerprints: From apparent plurality to epistemic individuation in digital minds",
+        title="Epistemic Fingerprints",
         author="Sofia Gallego",
         subject="Research paper for the Apart Research Digital Minds Research Sprint",
     )

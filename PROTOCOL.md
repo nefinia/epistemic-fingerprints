@@ -39,6 +39,15 @@ The basic pilot contains 54 trials:
 
 Every replicate starts in a fresh conversation. Model label, date, interface, and any visible sampling settings should be recorded in the research log.
 
+## Collection paths and provenance
+
+Two complementary collection paths are supported:
+
+1. The manual web lab uses a subscription interface. It records the visible model label and reflects an accessible, ecologically familiar form of use, while acknowledging that model version and sampling controls may remain partly hidden.
+2. The Modal/vLLM runner uses one declared open-weight model and records the GPU, sampling parameters, per-trial seed, raw response, validation failures, and parsed trial record.
+
+Results from these paths must be analyzed as distinct datasets. They should not be silently pooled, because the model and interface are part of the experimental provenance. Within each dataset, hold the model, interface, task wording, and sampling policy fixed.
+
 ## Outcomes
 
 - accuracy;
@@ -54,3 +63,7 @@ The fingerprint statistic is exploratory and must not be described as a validate
 ## Interpretation boundary
 
 A detectable epistemic fingerprint would indicate stable behavioral differentiation under the intervention. It would not establish consciousness, phenomenology, personhood, or moral status. A null result would still constrain claims that surface personas or contextual histories create meaningfully distinct epistemic agents.
+
+## Wider research programme
+
+The pilot is a narrow empirical instrument inside a broader inquiry into epistemic diversity: how models, humans, institutions, languages, observations, and cultural practices shape the space of ideas a population can explore. Artistic, political, social, and philosophical interpretations motivate future studies, but they must not be presented as findings of the 54-trial pilot. See [`RESEARCH_VISION.md`](RESEARCH_VISION.md).

@@ -42,6 +42,20 @@ jupyter notebook notebooks/epistemic_fingerprints_analysis.ipynb
 
 By default the notebook uses an explicitly simulated 54-trial dataset so the full pipeline runs immediately. Set `DATA_PATH` to a JSON file exported by the web lab to analyze empirical observations. The analysis functions live in `analysis/pipeline.py` and can also be imported into scripts.
 
+## Run the reproducible open-model pilot
+
+The manual web-lab workflow preserves access to a subscription model but cannot fully control model version or sampling. A complementary runner executes the same 54-cell design on one declared open-weight model using Modal and vLLM. It records the model name, GPU, sampling parameters, per-trial seed, raw response, parse failures and validated trial data.
+
+```bash
+pip install -r requirements-modal.txt
+modal setup
+modal run experiments/modal_batch.py --output data/modal-qwen3-8b.json
+```
+
+The default is `Qwen/Qwen3-8B` on one L4 GPU. Set `EPISTEMIC_MODEL` and `EPISTEMIC_GPU` before the command to change them, but keep both fixed within a reported experiment. Modal's Starter plan currently includes monthly compute credit, and its academic programme advertises larger research grants; these credits cover Modal compute, not proprietary-model API charges. See the [Modal pricing page](https://modal.com/pricing) and [academic programme](https://modal.com/academics).
+
+The open-model run should be reported as a distinct dataset, not silently pooled with subscription-interface trials. This separation makes model and interface effects auditable.
+
 ## Pilot report
 
 The submission-ready pilot report is available at [`output/pdf/epistemic-fingerprints-pilot-report.pdf`](output/pdf/epistemic-fingerprints-pilot-report.pdf). It is intentionally framed as a protocol and open research artifact until empirical trial collection is complete.
