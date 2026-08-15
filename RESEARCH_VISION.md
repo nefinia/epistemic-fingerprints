@@ -4,6 +4,14 @@ AI can multiply the number of texts, images, arguments and apparent agents aroun
 
 Epistemic Fingerprints begins with a deliberately small experiment. It asks whether candidate agents produced from one model—through independent sampling, prompted personas or different conversational histories—develop stable differences in the hypotheses they prefer, the uncertainty they express and the experiments they choose. This does not tell us whether a system is conscious. It gives us one way to test whether apparent plurality corresponds to a persistent difference in how possibilities are explored.
 
+## AI safety: false redundancy and correlated failure
+
+The immediate safety problem is that a population of agents may look more robust than it is. Debate, critique, scalable oversight and ensemble decision-making gain little from additional voices if every participant inherits the same omissions. Agreement can then be mistaken for independent confirmation, while a single epistemic lineage is merely repeated through different interfaces or personas.
+
+This project treats decorrelated error as a safety property. It asks whether agents fail differently, whether they preserve low-probability but consequential hypotheses, and whether they select experiments capable of resolving disagreement. The aim is not diversity for its own sake. A useful population should expand coverage while remaining calibrated and in contact with evidence.
+
+This requires separating two ideas. A strong fingerprint means an agent is stably distinguishable; it does not mean that a population explores more conceptual territory. Agents with vivid individual profiles may still share one epistemic ancestry and the same omissions. The marginal gain from each additional agent is therefore as important as the number of agents present. A longer programme could develop an Effective Epistemic Sample Size, but the pilot first measures the underlying coverage and dependence directly.
+
 I see this pilot as the empirical nucleus of a longer interdisciplinary programme. The object is not the isolated model alone, but the wider system: models, people, institutions, interfaces, languages, observations and feedback loops through which societies decide what is plausible, visible and worth testing.
 
 ## Art: giving form to conceptual absence

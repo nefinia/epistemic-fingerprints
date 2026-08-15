@@ -2,7 +2,13 @@
 
 ## Research question
 
-Does conversational history create a more stable cross-task epistemic fingerprint than a prompted persona or ordinary stochastic sampling from the same language model?
+The pilot separates three questions that are easy to conflate:
+
+1. **Individuation:** do candidate agents develop stable, distinguishable epistemic fingerprints across tasks?
+2. **Effective diversity:** does adding agents increase hypothesis coverage, or does coverage saturate quickly because they share one model lineage?
+3. **Tail recovery:** do populations preserve consequential minority hypotheses and avoid correlated blind spots?
+
+The safety interpretation is: when several agents are used for deliberation or oversight, do they provide genuine epistemic redundancy, or do different voices reproduce the same blind spots?
 
 ## Hypotheses
 
@@ -53,12 +59,26 @@ Results from these paths must be analyzed as distinct datasets. They should not 
 - accuracy;
 - normalized hypothesis entropy;
 - shared-error concentration;
+- critical-hypothesis retention: the fraction of trials retaining a designated low-probability but consequential failure explanation as either the primary hypothesis or an explicit alternative;
 - confidence;
 - breadth of retained hypotheses;
 - informativeness of the selected next experiment;
 - provisional fingerprint strength: between-agent variance divided by between-agent plus within-agent variance, averaged over shared behavioral features.
+- marginal epistemic gain: the average increase in named-hypothesis coverage when another candidate agent is added, computed across exact agent combinations.
 
 The fingerprint statistic is exploratory and must not be described as a validated psychometric measure.
+
+Fingerprint strength measures stable distinguishability, not collective diversity. A population can contain clearly individuated agents yet add little new coverage because their blind spots remain correlated. Agent count is therefore not the same as epistemic sample size. A formal **Effective Epistemic Sample Size** may be useful in future work, but this pilot reports the coverage curve directly rather than introducing an unvalidated composite.
+
+Critical-hypothesis retention is also not a standalone safety score. Indiscriminately preserving every possibility can reduce decision quality. It must be interpreted jointly with accuracy, calibration, and the informativeness of the selected experiment.
+
+## AI safety predictions
+
+- A population that provides genuine epistemic redundancy should show lower shared-error concentration than ordinary repeated sampling.
+- It should preserve consequential minority hypotheses often enough to prevent premature closure, without sacrificing calibration or discriminating test choice.
+- Persona diversity that changes prose but not structured choices should not be treated as additional oversight capacity.
+- Agreement among agents derived from one model should not be interpreted as independent confirmation unless their errors and omissions are shown to be decorrelated.
+- A particularly informative safety result would be high fingerprint strength alongside fast coverage saturation and shared errors: distinguishable agents that remain collectively homogeneous.
 
 ## Interpretation boundary
 

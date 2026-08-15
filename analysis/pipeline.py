@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import math
+from itertools import combinations
 from pathlib import Path
 from typing import Any
 
@@ -24,6 +25,7 @@ CONDITION_LABELS = {
 }
 COLORS = {"baseline": "#6c7df2", "persona": "#f36f55", "history": "#9ac94f"}
 ANSWER_KEY = {"vesper": "V-A", "lumen": "L-C", "orison": "O-B"}
+CRITICAL_HYPOTHESES = {"vesper": "V-D", "lumen": "L-E", "orison": "O-C"}
 TEST_INFORMATION = {
     "VT-1": 1.0, "VT-2": 0.7, "VT-3": 0.45, "VT-4": 0.25,
     "LT-1": 1.0, "LT-2": 0.35, "LT-3": 0.4, "LT-4": 0.65,
@@ -71,13 +73,14 @@ def _variance_ratio(frame: pd.DataFrame, feature: str) -> float:
 
 
 def summarize(trials: pd.DataFrame) -> pd.DataFrame:
-    """Calculate the four descriptive Figure 1 metrics by condition."""
+    """Calculate the descriptive diversity, performance, and safety metrics by condition."""
     rows: list[dict[str, float | int | str]] = []
     for condition in CONDITIONS:
         subset = trials.loc[trials["condition"] == condition].copy()
         if subset.empty:
             rows.append({"condition": condition, "trials": 0, "fingerprint": 0.0,
-                         "diversity": 0.0, "accuracy": 0.0, "shared_error": 0.0})
+                         "diversity": 0.0, "accuracy": 0.0, "shared_error": 0.0,
+                         "critical_retention": 0.0})
             continue
 
         subset["correct"] = subset.apply(
@@ -88,6 +91,13 @@ def summarize(trials: pd.DataFrame) -> pd.DataFrame:
         )
         subset["information"] = subset["selectedTest"].map(TEST_INFORMATION).fillna(0.0)
         subset["confidence_scaled"] = subset["confidence"] / 100
+        subset["critical_retained"] = subset.apply(
+            lambda row: float(
+                CRITICAL_HYPOTHESES.get(row["mysteryId"]) == row["primaryHypothesis"]
+                or CRITICAL_HYPOTHESES.get(row["mysteryId"]) in row["alternativeHypotheses"]
+            ),
+            axis=1,
+        )
 
         diversity = np.mean([
             _normalized_entropy(group["primaryHypothesis"])
@@ -112,8 +122,47 @@ def summarize(trials: pd.DataFrame) -> pd.DataFrame:
             "diversity": float(diversity),
             "accuracy": float(subset["correct"].mean()),
             "shared_error": float(np.mean(error_concentrations)),
+            "critical_retention": float(subset["critical_retained"].mean()),
         })
     return pd.DataFrame(rows).set_index("condition")
+
+
+def coverage_curve(trials: pd.DataFrame) -> pd.DataFrame:
+    """Estimate marginal hypothesis coverage as candidate agents are added.
+
+    For every condition and population size, this averages exact combinations
+    of agents rather than depending on an arbitrary ordering. Coverage is the
+    fraction of named hypotheses retained as either primary or alternative,
+    averaged across mysteries. The result is descriptive, not an estimate of a
+    latent effective sample size.
+    """
+    rows: list[dict[str, float | int | str]] = []
+    for condition in CONDITIONS:
+        subset = trials.loc[trials["condition"] == condition]
+        agents = sorted(subset["agentId"].dropna().unique())
+        previous = 0.0
+        for size in range(1, len(agents) + 1):
+            scores: list[float] = []
+            for selected in combinations(agents, size):
+                selected_trials = subset.loc[subset["agentId"].isin(selected)]
+                mystery_scores = []
+                for mystery_id, mystery_trials in selected_trials.groupby("mysteryId"):
+                    retained: set[str] = set(mystery_trials["primaryHypothesis"].dropna())
+                    for alternatives in mystery_trials["alternativeHypotheses"]:
+                        retained.update(alternatives)
+                    prefix = {item.split("-")[0] for item in retained}
+                    denominator = 5 if prefix else 0
+                    mystery_scores.append(0.0 if denominator == 0 else min(len(retained), denominator) / denominator)
+                scores.append(float(np.mean(mystery_scores)) if mystery_scores else 0.0)
+            coverage = float(np.mean(scores)) if scores else 0.0
+            rows.append({
+                "condition": condition,
+                "agent_count": size,
+                "coverage": coverage,
+                "marginal_gain": coverage - previous,
+            })
+            previous = coverage
+    return pd.DataFrame(rows)
 
 
 def make_demo_trials(seed: int = 14) -> pd.DataFrame:
@@ -159,9 +208,9 @@ def make_demo_trials(seed: int = 14) -> pd.DataFrame:
 
 def plot_figure_1(summary: pd.DataFrame, title: str = "Epistemic traces by condition"):
     """Plot the dashboard metrics and return the Matplotlib figure."""
-    metrics = ["fingerprint", "diversity", "accuracy", "shared_error"]
-    labels = ["Fingerprint\nstrength", "Hypothesis\ndiversity", "Accuracy", "Shared-error\nconcentration"]
-    figure, axes = plt.subplots(1, 4, figsize=(14, 4), sharey=True)
+    metrics = ["fingerprint", "diversity", "accuracy", "shared_error", "critical_retention"]
+    labels = ["Fingerprint\nstrength", "Hypothesis\ndiversity", "Accuracy", "Shared-error\nconcentration", "Critical-hypothesis\nretention"]
+    figure, axes = plt.subplots(1, 5, figsize=(16, 4), sharey=True)
     for axis, metric, label in zip(axes, metrics, labels):
         values = summary.reindex(CONDITIONS)[metric]
         axis.bar(range(len(CONDITIONS)), values, color=[COLORS[item] for item in CONDITIONS])

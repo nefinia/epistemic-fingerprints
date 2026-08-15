@@ -158,11 +158,11 @@ def build_story():
     cover_body = ParagraphStyle("CoverBody", parent=BODY, fontSize=10, leading=15, textColor=colors.HexColor("#C2C8D5"))
     cover_meta = ParagraphStyle("CoverMeta", parent=SMALL, textColor=WHITE, fontSize=7.5, leading=12)
 
-    story += [Spacer(1, 18 * mm), P("DIGITAL MINDS x EPISTEMIC DIVERSITY", cover_eyebrow), AccentRule(32 * mm, CORAL, 3), Spacer(1, 8 * mm)]
+    story += [Spacer(1, 18 * mm), P("AI SAFETY x DIGITAL MINDS x EPISTEMIC DIVERSITY", cover_eyebrow), AccentRule(32 * mm, CORAL, 3), Spacer(1, 8 * mm)]
     story += [P("Epistemic<br/>Fingerprints", cover_title)]
     story += [Spacer(1, 2 * mm), P("<b>Many agents. How many minds?</b>", ParagraphStyle("CoverQuestion", parent=cover_body, fontSize=14, leading=18, textColor=CORAL)), Spacer(1, 8 * mm)]
     abstract_box = Table([[P("ABSTRACT", cover_eyebrow), P(
-        "AI systems can produce populations of apparently different agents, but surface plurality may not imply epistemic plurality. This pilot tests whether repeated instances, prompted personas, and different conversational histories produce stable differences in hypothesis choice, uncertainty, and experiment selection. It treats epistemic individuality as one behavioral dimension relevant to digital-mind individuation - not as evidence of consciousness or moral status. A manual web lab and a seeded open-model runner provide complementary collection paths. The longer inquiry asks how shared cognitive infrastructure shapes the conceptual space available to science, art, politics and society. Empirical collection is pending; simulated interface values only test the pipeline.", cover_body)]], colWidths=[29 * mm, 125 * mm])
+        "AI systems can produce populations of apparently different agents, but surface plurality may not provide independent safety checks. This pilot tests whether repeated instances, prompted personas, and different conversational histories produce stable differences in hypothesis choice, uncertainty, and experiment selection. Its immediate safety target is false epistemic redundancy: agreement that conceals shared blind spots. Shared-error concentration and critical-hypothesis retention test correlated failure and premature loss of consequential minority possibilities. These are descriptive probes, not standalone safety scores or evidence of consciousness. A manual web lab and seeded open-model runner provide complementary collection paths. Empirical collection is pending; simulated interface values only test the pipeline.", cover_body)]], colWidths=[29 * mm, 125 * mm])
     abstract_box.setStyle(TableStyle([
         ("BOX", (0, 0), (-1, -1), 0.7, colors.Color(1, 1, 1, alpha=0.25)),
         ("BACKGROUND", (0, 0), (-1, -1), colors.Color(1, 1, 1, alpha=0.04)),
@@ -179,7 +179,7 @@ def build_story():
 
     story.append(PageBreak())
     story += section("01", "The problem", "The project starts from epistemic diversity and uses it as a lens on digital-mind identity.")
-    story += [callout("Central question", "AI lets us generate more. How do we make sure we also explore more?", WHITE, CORAL), Spacer(1, 8 * mm)]
+    story += [callout("Central safety question", "When do many AI agents provide independent safety checks - and when do they repeat the same blind spot?", WHITE, CORAL), Spacer(1, 8 * mm)]
     story += [P("Generative AI sharply increases the volume of papers, hypotheses, designs, images and arguments that can be produced. But volume is not the same as conceptual coverage. A future knowledge ecosystem could generate much more content while clustering around fewer assumptions, representations and causal models."),
               P("This is not a claim that human creativity is intrinsically superior to machine creativity. The relevant unit is the whole human-AI knowledge ecosystem: models, people, institutions, languages, observations, experiments and recursive feedback loops. Existing evidence is mixed. Recursive training can disproportionately lose low-probability information [1]; LLM outputs can be less epistemically diverse than web search [3]; and generative tools can homogenize creative output across users [5]. Yet high exposure to AI-generated ideas has also increased collective idea diversity in one large experiment [6]. The question is therefore conditional: <b>when does AI expand conceptual space, when does it contract it, and what interventions change the outcome?</b>")]
     story += [Spacer(1, 4 * mm), card_grid([
@@ -187,18 +187,26 @@ def build_story():
         ("02", "Epistemic diversity", "Differences concern what is noticed, doubted, retained as possible and chosen for testing.", CORAL),
         ("03", "Collective diversity", "Innovation may depend on populations and variation - not only on individual performance.", LIME),
     ]), Spacer(1, 8 * mm)]
-    story += [P("Connection to digital minds", H2), P("The Digital Minds research agenda asks what constitutes an individual digital mind: a foundation model, an inference instance, a persona, a conversation, or another unit. Epistemic independence offers an empirical probe of that individuation problem. If two nominal minds repeatedly use the same conceptual structures and make the same errors, in what sense are they independent cognitive agents? Conversely, if a persona or history creates a persistent, cross-task epistemic trace, that is evidence of behavioral differentiation - while remaining neutral about consciousness."),
-              P("The wider inquiry", H2),
+    story += [P("Connection to AI safety", H2), P("Multi-agent deliberation, debate, forecasting and scalable oversight often rely on the appearance of independent judgment. But ten agents are not ten safety checks if they inherit the same assumptions and repeatedly omit the same possibility. Epistemic Fingerprints tests whether apparent plurality creates genuine redundancy or merely repeats one model's failure modes through different voices."),
+              P("Connection to digital minds", H2), P("Digital-mind research asks what constitutes an individual: a model, inference instance, persona, conversation or another unit. Epistemic independence offers one empirical probe. Persistent cross-task traces would show behavioral differentiation while remaining neutral about consciousness."),
+              PageBreak(), P("The wider inquiry", H1),
               P("The experiment is intentionally narrow, but the question around it is not. If a small number of models increasingly mediate how people write, imagine, research and decide, epistemic diversity becomes a question about culture and power as well as model behavior."),
-              P("The longer programme connects <b>art</b> (making absence perceptible), <b>politics</b> (who shapes cognitive infrastructure), <b>society</b> (which knowledge is lost) and <b>philosophy</b> (what makes one mind distinct).", SMALL)]
+              P("The longer programme connects technical measurement to four domains without treating them as findings of this small pilot."),
+              card_grid([
+                  ("ART", "Make absence perceptible", "Use maps and artistic experiments to reveal repeated metaphors, familiar futures and unexplored conceptual space.", BLUE),
+                  ("POLITICS", "Audit cognitive concentration", "Ask who shapes the models that increasingly mediate institutional and public reasoning.", CORAL),
+                  ("SOCIETY", "Protect situated knowledge", "Study whether minority explanations, languages and local knowledge are disproportionately lost.", LIME),
+                  ("PHILOSOPHY", "Refine individuation", "Separate performed character from persistent organization without deciding consciousness.", BLUE),
+              ], columns=2, widths=[82 * mm, 82 * mm]), Spacer(1, 7 * mm),
+              callout("Long-term question", "How can human and artificial minds build knowledge systems that generate more while also exploring more?", colors.HexColor("#E8EAFD"), BLUE)]
 
     story.append(PageBreak())
     story += section("02", "Research questions and hypotheses")
-    story += [P("Primary research question", H2), callout("RQ1", "Does conversational history create a more stable epistemic fingerprint than a prompted persona or ordinary stochastic sampling from the same language model?", WHITE, BLUE), Spacer(1, 6 * mm)]
+    story += [P("Three questions, not one score", H2), callout("RQ1-3", "Do agents become stably distinguishable, does adding agents expand hypothesis coverage, and does the population retain consequential minority explanations?", WHITE, BLUE), Spacer(1, 6 * mm)]
     story += [P("Secondary questions", H2), card_grid([
-        ("RQ2", "Diversity", "Which condition explores the broadest set of substantively different hypotheses?", BLUE),
-        ("RQ3", "Independence", "Which condition produces the least concentrated pattern of shared errors?", CORAL),
-        ("RQ4", "Quality", "Can increased exploration coexist with accuracy and informative experiment choice?", LIME),
+        ("RQ2", "Effective diversity", "How much named-hypothesis coverage does each additional agent contribute?", BLUE),
+        ("RQ3", "Tail recovery", "Does the population avoid shared errors and retain consequential minority hypotheses?", CORAL),
+        ("KEY", "Safety redundancy", "Agent count is not assumed to equal the number of independent epistemic checks.", LIME),
     ]), Spacer(1, 7 * mm)]
     hypotheses = Table([
         [P("H0", EYEBROW), P("Between-agent variation does not exceed within-agent variation in any condition.", BODY)],
@@ -211,6 +219,15 @@ def build_story():
         ("TOPPADDING", (0, 0), (-1, -1), 9), ("BOTTOMPADDING", (0, 0), (-1, -1), 9),
     ]))
     story += [P("Hypotheses", H2), hypotheses, Spacer(1, 7 * mm), P("The ordering of conditions is not assumed in advance. A null result remains informative: it would constrain claims that prompted personas or short conversational histories create meaningfully distinct epistemic agents. A detectable fingerprint would indicate behavioral differentiation only; it would not establish subjective experience, personhood, welfare, or moral status.")]
+    story += [PageBreak(), P("How to read the outcome", H1), callout("Safety prediction", "Useful redundancy should lower shared-error concentration and preserve consequential minority hypotheses without sacrificing calibration or discriminating experiment choice.", colors.HexColor("#EAF6D5"), LIME), Spacer(1, 7 * mm),
+              P("Individuation and effective diversity can move independently", H2),
+              card_grid([
+                  ("A", "High fingerprint + high gain", "Agents are distinguishable and each adds meaningful hypothesis coverage.", BLUE),
+                  ("B", "High fingerprint + low gain", "Agents are recognizable but collectively homogeneous: a false-redundancy warning.", CORAL),
+                  ("C", "Low fingerprint + high gain", "Stable identities are weak, yet stochastic sampling still expands collective coverage.", LIME),
+                  ("D", "Low fingerprint + low gain", "The panel adds neither persistent specialization nor much conceptual coverage.", BLUE),
+              ], columns=2, widths=[82 * mm, 82 * mm]), Spacer(1, 6 * mm),
+              P("The pilot reports these dimensions separately. It does not call the number of agents an Effective Epistemic Sample Size; developing and validating such a measure belongs to future work.", SMALL)]
 
     story.append(PageBreak())
     story += section("03", "Experimental design", "A deliberately small design with complementary manual and reproducible open-model collection paths.")
@@ -247,22 +264,23 @@ def build_story():
     story += [P("Minimum pilot", H2), sample_table, Spacer(1, 6 * mm), P("Controls and collection", H2), P("The underlying model, task wording and interface should be held fixed. Every replicate begins in a fresh conversation. The model label, date, interface and visible sampling settings are recorded. The answer key and previous responses must never appear in a trial prompt. The manual web lab provides accessible subscription-interface collection; a second Modal/vLLM path runs the same design on one declared open-weight model with fixed sampling parameters and per-trial seeds. The datasets are reported separately because model and interface differences are part of the provenance.", SMALL)]
 
     story.append(PageBreak())
-    story += section("04", "Measures and analysis", "Figure 1 compares conditions without collapsing exploration, performance and correlated failure into one score.")
+    story += section("04", "Measures and analysis", "The analysis keeps exploration, performance and correlated safety failure visible as separate dimensions.")
     story += [card_grid([
         ("01", "Fingerprint strength", "Between-agent variance divided by between-agent plus within-agent variance, averaged across four structured features. Higher means a more stable trace.", BLUE),
         ("02", "Hypothesis diversity", "Normalized entropy of primary-hypothesis choices within each mystery. Higher means more alternatives are represented.", CORAL),
         ("03", "Accuracy", "Proportion of trials selecting the keyed hypothesis. Diversity without contact with truth can simply be noise.", LIME),
         ("04", "Shared-error concentration", "Among wrong answers, the fraction concentrated on the most common error. Higher suggests correlated blind spots.", BLUE),
     ], columns=2, widths=[82 * mm, 82 * mm]), Spacer(1, 8 * mm)]
+    story += [callout("Safety probe", "Critical-hypothesis retention = fraction of trials preserving a designated low-probability but consequential failure explanation as either primary or alternative.", colors.HexColor("#EAF6D5"), LIME), Spacer(1, 5 * mm), P("Retention is not automatically safer. It must be interpreted beside accuracy, calibration and test informativeness; otherwise it can reward noise or indiscriminate suspicion.", SMALL)]
     story += [P("Fingerprint features", H2), P("The provisional fingerprint statistic uses confidence, breadth of retained hypotheses, informativeness of the selected experiment and correctness. For each feature, the analysis estimates:"),
               callout("Variance ratio", "between-agent variance / (between-agent variance + within-agent variance)", WHITE, CORAL), Spacer(1, 5 * mm),
               P("This ratio is exploratory, sensitive to small samples and not a validated psychometric measure. The report will present its components alongside the aggregate rather than treating it as a definitive identity score."),
-              P("Planned Figure 1", H2)]
+              PageBreak(), P("Planned result views", H1), P("Figure 1 keeps individuation, exploration, performance and correlated failure visible as separate dimensions. A second view plots hypothesis coverage against the number of candidate agents.", BODY)]
     flow = Table([
         [P("REPEATED<br/>INSTANCES", EYEBROW), P("PROMPTED<br/>PERSONAS", EYEBROW), P("DIFFERENT<br/>HISTORIES", EYEBROW)],
         [P("same model", SMALL), P("same model", SMALL), P("same model", SMALL)],
         [P("↓", ParagraphStyle("Arrow", parent=H1, alignment=TA_CENTER, textColor=BLUE)), P("↓", ParagraphStyle("Arrow2", parent=H1, alignment=TA_CENTER, textColor=CORAL)), P("↓", ParagraphStyle("Arrow3", parent=H1, alignment=TA_CENTER, textColor=LIME))],
-        [P("fingerprint  /  diversity  /  accuracy  /  shared error", ParagraphStyle("Metrics", parent=H3, alignment=TA_CENTER)) , "", ""],
+        [P("fingerprint  /  diversity  /  marginal gain  /  accuracy  /  shared error  /  critical retention", ParagraphStyle("Metrics", parent=H3, alignment=TA_CENTER)) , "", ""],
     ], colWidths=[54.7 * mm] * 3)
     flow.setStyle(TableStyle([
         ("SPAN", (0, 3), (2, 3)),
@@ -274,7 +292,9 @@ def build_story():
         ("ALIGN", (0, 0), (-1, -1), "CENTER"), ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
         ("TOPPADDING", (0, 0), (-1, -1), 8), ("BOTTOMPADDING", (0, 0), (-1, -1), 8),
     ]))
-    story += [flow, Spacer(1, 5 * mm), P("<b>Status.</b> The web interface contains an explicitly labeled simulated dataset to exercise this pipeline. It must not be interpreted or reproduced as an empirical result. Once trials are collected, Figure 1 will be regenerated from the exported JSON using the public notebook.", SMALL)]
+    story += [flow, Spacer(1, 5 * mm), P("Marginal epistemic gain", H2), P("For one, two and three agents, the pipeline averages every exact agent combination and measures the fraction of named hypotheses retained. Rapid saturation means later agents add little conceptual coverage, even if their fingerprints remain strong."),
+              callout("Interpretation", "Agent count is not necessarily epistemic sample size. Agreement is only reassuring when omissions and errors are sufficiently independent.", colors.HexColor("#EAF6D5"), LIME), Spacer(1, 5 * mm),
+              P("<b>Status.</b> The web interface contains an explicitly labeled simulated dataset to exercise this pipeline. It must not be interpreted as an empirical result. Once trials are collected, both views will be regenerated from the exported JSON using the public notebook.", SMALL)]
 
     story.append(PageBreak())
     story += section("05", "Interpretation, limitations and value")
@@ -282,8 +302,8 @@ def build_story():
         ("A", "History > persona", "Longitudinal context may individuate epistemic behavior more strongly than a role label.", BLUE),
         ("B", "Persona > history", "Explicit epistemic goals may be sufficient to produce stable behavioral specialization.", CORAL),
         ("C", "No stable trace", "Apparent agents may remain within ordinary sampling variation under these interventions.", LIME),
-        ("D", "Diversity with errors", "More hypotheses without accuracy would show exploration, but not improved collective intelligence.", BLUE),
-        ("E", "Accurate monoculture", "High accuracy with concentrated errors would expose a shared blind spot hidden by average performance.", CORAL),
+        ("D", "Diversity with errors", "More hypotheses without accuracy would show exploration, but not improved safety or collective intelligence.", BLUE),
+        ("E", "False redundancy", "High accuracy with concentrated errors would expose a shared blind spot hidden by average performance.", CORAL),
         ("F", "Mixed result", "Different metrics may disagree, showing why individuality should not be reduced to one number.", LIME),
     ]), Spacer(1, 7 * mm)]
     story += [P("Limitations", H2),
@@ -292,8 +312,9 @@ def build_story():
               bullet("Short histories and explicit personas are stylized interventions, not full developmental trajectories."),
               bullet("Synthetic tasks improve control but may not generalize to open-ended research or social reasoning."),
               bullet("The answer keys and test-informativeness scores encode researcher judgment and should be independently audited."),
+              bullet("The designated consequential hypotheses encode researcher judgment; retention is a probe of premature closure, not a direct measure of safety."),
               bullet("Fresh-chat trials test repeatability across instances, not continuity within a persistent deployed agent."),
-              Spacer(1, 4 * mm), P("Why the pilot is useful", H2), P("The design is intentionally falsifiable and inexpensive. It separates stylistic variation from structured epistemic choices, treats null results as informative, and produces reusable infrastructure. The next study can add different foundation models, multilingual tasks, embeddings versus substantive coding, human baselines, and mixed human-AI groups. The longer-term question is how populations of human and artificial agents can remain innovative, adaptive and capable of discovering possibilities they do not already represent.")]
+              Spacer(1, 4 * mm), P("Why the pilot is useful", H2), P("The design is intentionally falsifiable and inexpensive. It separates stylistic variation from structured epistemic choices and asks whether apparent agent diversity creates real safety redundancy. A negative result matters: it would warn against treating agreement among same-lineage agents as independent confirmation. The next study can add different foundation models, multilingual tasks, human baselines, mixed human-AI groups, and explicit oversight tasks.")]
 
     story.append(PageBreak())
     story += section("06", "Open research artifact and references")

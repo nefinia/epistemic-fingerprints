@@ -6,6 +6,8 @@ The project's editorial voice and contribution guidelines are described in [`WRI
 
 Epistemic Fingerprints is a small empirical pilot for the Apart Research Digital Minds Research Sprint. It asks whether repeated samples, prompted personas, or different formative histories produce stable patterns in how a language model forms hypotheses, selects experiments, and expresses uncertainty.
 
+Its immediate AI-safety motivation is **false epistemic redundancy**. Multi-agent debate, oversight, forecasting, and decision support can look robust because several agents agree. But if those agents share the same assumptions and failure modes, agreement is not independent confirmation. The pilot tests whether apparent plurality produces genuinely decorrelated reasoning or merely repeats one model's blind spots through different voices.
+
 The project does **not** treat behavioral individuality as evidence of consciousness or moral patienthood. It tests whether epistemic behavior can contribute one operational dimension to the model–instance–persona–conversation individuation problem.
 
 ## A wider inquiry
@@ -27,11 +29,11 @@ The weekend submission keeps these implications separate from its limited empiri
 - Responses use a shared JSON format to separate epistemic choices from writing style.
 - The initial target is 54 observations: 3 conditions × 3 agents × 3 mysteries × 2 replicates.
 
-The live dashboard calculates descriptive accuracy, hypothesis diversity, shared-error concentration, and a provisional epistemic fingerprint strength. The included simulated dataset is visibly labeled and exists only to demonstrate the interface.
+The live dashboard separates **individuation** from **collective diversity**. Fingerprint strength asks whether agents are stably distinguishable. Hypothesis diversity and the marginal epistemic-gain curve ask whether adding agents actually expands coverage. Shared-error concentration and critical-hypothesis retention probe correlated blind spots and tail recovery. Agent count is not assumed to equal epistemic sample size: a panel can contain recognizable agents yet remain collectively homogeneous. None of these measures is a standalone safety score, and the included simulated dataset is visibly labeled as an interface demonstration rather than a finding.
 
 ## Reproduce the analysis
 
-The repository includes both a runnable Jupyter notebook and reusable Python analysis code. The notebook validates a JSON export from the web lab, checks experimental coverage, calculates the four Figure 1 metrics, and generates the comparison plot.
+The repository includes both a runnable Jupyter notebook and reusable Python analysis code. The notebook validates a JSON export from the web lab, checks experimental coverage, calculates the individuation, diversity, performance, correlated-failure and safety-probe metrics, and generates the comparison plot. The reusable pipeline also computes the exact-combination marginal coverage curve.
 
 ```bash
 python -m venv .venv

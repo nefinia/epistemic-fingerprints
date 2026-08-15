@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { buildPrompt, calculateMetrics, conditions, makeDemoTrials, mysteries, type ConditionId, type Trial } from "./experiment";
+import { buildPrompt, calculateCoverageCurve, calculateMetrics, conditions, makeDemoTrials, mysteries, type ConditionId, type Trial } from "./experiment";
 
 const STORAGE_KEY = "epistemic-fingerprints-trials-v1";
 
@@ -48,6 +48,7 @@ export function ExperimentApp() {
   const activeMystery = mysteries.find((mystery) => mystery.id === mysteryId)!;
   const dataset = useMemo(() => view === "demo" ? makeDemoTrials() : trials, [trials, view]);
   const metrics = conditions.map((condition) => ({ ...condition, metrics: calculateMetrics(dataset, condition.id) }));
+  const coverageCurves = conditions.map((condition) => ({ ...condition, points: calculateCoverageCurve(dataset, condition.id) }));
   const prompt = buildPrompt(conditionId, agentId, activeMystery);
 
   function changeCondition(next: ConditionId) {
@@ -122,7 +123,8 @@ export function ExperimentApp() {
         <a className="wordmark" href="#top"><span>EF</span> Epistemic Fingerprints</a>
         <div className="nav-links">
           <a href="#idea">The idea</a>
-          <a href="#ecology">The wider inquiry</a>
+          <a href="#safety">AI safety</a>
+          <a href="#wider">The wider inquiry</a>
           <a href="#results">Results</a>
           <a href="#lab">Run a trial</a>
           <a href="#protocol">Protocol</a>
@@ -133,9 +135,9 @@ export function ExperimentApp() {
 
       <header id="top" className="hero shell">
         <div className="hero-copy">
-          <p className="eyebrow">Digital minds × epistemic diversity</p>
+          <p className="eyebrow">AI safety × digital minds × epistemic diversity</p>
           <h1>Many agents.<br /><em>How many minds?</em></h1>
-          <p className="lede">A behavioral pilot asking whether sampling, prompted personas, or different histories produce stable ways of forming and revising beliefs.</p>
+          <p className="lede">A behavioral pilot asking whether apparently independent AI agents provide genuine epistemic redundancy—or repeat one model&apos;s blind spots through different voices.</p>
           <div className="hero-actions">
             <a className="button primary" href="#lab">Run the first trial <span>↘</span></a>
             <a className="button ghost" href="#protocol">Read the protocol</a>
@@ -155,15 +157,15 @@ export function ExperimentApp() {
       <section className="question-band">
         <div className="shell question-grid">
           <p>THE QUESTION</p>
-          <blockquote>Can we recognize an agent by <em>how it explores</em>—even after we remove its voice and name?</blockquote>
-          <span>Epistemic individuality is not evidence of consciousness. It is one behavioral dimension relevant to individuation.</span>
+          <blockquote>When do many AI agents provide <em>independent safety checks</em>—and when do they only reproduce the same failure?</blockquote>
+          <span>Agreement is not independent confirmation when the agents share an epistemic lineage.</span>
         </div>
       </section>
 
       <section id="idea" className="section shell idea-section">
         <div className="section-head">
           <div><p className="eyebrow">00 · The idea</p><h2>More output is not necessarily more exploration</h2></div>
-          <p>This pilot begins with epistemic diversity, then asks what it can tell us about digital minds.</p>
+          <p>This pilot begins with epistemic diversity, then asks what it can tell us about safety and digital minds.</p>
         </div>
         <div className="idea-grid">
           <div className="idea-statement">
@@ -171,28 +173,38 @@ export function ExperimentApp() {
             <p>The concern is not that humans are creative and AI is not. The interesting unit is the whole human–AI knowledge ecosystem: the models, people, institutions, observations and feedback loops through which ideas are produced and selected.</p>
           </div>
           <div className="idea-points">
-            <article><span>01</span><div><h3>Apparent plurality</h3><p>Many agents can differ in voice while relying on the same assumptions, favoring the same hypotheses and making the same mistakes.</p></div></article>
+            <article><span>01</span><div><h3>False redundancy</h3><p>Many agents can differ in voice while relying on the same assumptions, favoring the same hypotheses and making the same mistakes.</p></div></article>
             <article><span>02</span><div><h3>Epistemic plurality</h3><p>A stronger kind of difference would persist across tasks: what an agent notices, doubts, preserves as possible and chooses to test.</p></div></article>
             <article><span>03</span><div><h3>The empirical move</h3><p>Hold the model fixed, vary how candidate agents are formed, remove stylistic cues and compare their structured scientific choices.</p></div></article>
           </div>
         </div>
-        <aside className="scope-note"><strong>The larger question</strong><p>Could the number of apparent cognitive agents increase dramatically while effective epistemic diversity decreases? This weekend study cannot answer that. It builds one small instrument for investigating it.</p></aside>
+        <aside className="scope-note"><strong>The safety question</strong><p>Could a multi-agent system look robust because several agents agree, while actually amplifying one shared blind spot? This weekend study cannot settle that question. It builds one small instrument for investigating it.</p></aside>
       </section>
 
-      <section id="ecology" className="section ecology-section">
+      <section id="safety" className="section ecology-section">
         <div className="shell">
           <div className="section-head light">
-            <div><p className="eyebrow">01 · The wider inquiry</p><h2>When many voices share the same blind spots</h2></div>
-            <p>The experiment is small. The world around the question is not.</p>
+            <div><p className="eyebrow">01 · The safety problem</p><h2>Agreement can be a correlated failure</h2></div>
+            <p>Ten agents are not ten safety checks if they repeatedly omit the same possibility.</p>
           </div>
-          <p className="ecology-intro">If a few foundation models become part of how millions of people write, imagine, research and decide, epistemic diversity becomes more than a technical metric. It becomes a question about culture, power and what a society remains able to notice.</p>
+          <p className="ecology-intro">Multi-agent deliberation, debate and oversight often depend on the appearance of independent judgment. Epistemic Fingerprints asks whether that independence is real.</p>
           <div className="ecology-grid">
-            <article><span>ART</span><h3>Can we perceive what is absent?</h3><p>Art can make convergence visible: repeated metaphors, familiar futures and conceptual regions that no agent enters. An epistemic atlas could show not only the ideas produced, but the negative space around them.</p></article>
-            <article><span>POLITICS</span><h3>Who shapes the cognitive infrastructure?</h3><p>A population of assistants may appear plural while inheriting correlated assumptions from a small number of models. That matters for public reasoning, institutional decisions and the power to define which possibilities appear reasonable.</p></article>
-            <article><span>SOCIETY</span><h3>Which experiences survive compression?</h3><p>Low-frequency languages, situated knowledge and minority explanations may be especially easy to lose. Social diversity and epistemic diversity are not identical, but neither can be treated as irrelevant to the other.</p></article>
-            <article><span>PHILOSOPHY</span><h3>What makes one mind different from another?</h3><p>Is individuality a voice, a memory, a history, a stable way of questioning—or something else entirely? Behavioral differentiation cannot establish consciousness, but it can sharpen what we mean when we count models, personas and conversations as distinct agents.</p></article>
+            <article><span>FALSE CONSENSUS</span><h3>Is agreement independent evidence?</h3><p>A panel derived from one model may converge because its members share representations and defaults—not because several independent reasoners reached the same conclusion.</p></article>
+            <article><span>CORRELATED BLIND SPOTS</span><h3>Do different agents fail differently?</h3><p>Average accuracy can hide systemic fragility. Shared-error concentration measures whether ostensibly distinct agents repeatedly choose the same wrong explanation.</p></article>
+            <article><span>TAIL-RISK DETECTION</span><h3>Who preserves the unlikely possibility?</h3><p>A hypothesis can be low probability and still be essential to retain when its consequences are severe. The safety probe tracks whether agent populations collectively discard such possibilities.</p></article>
+            <article><span>OVERSIGHT</span><h3>Can diversity improve supervision?</h3><p>Debate, critique and scalable oversight gain little from multiple voices if every participant inherits the same omissions. Useful plurality must add coverage, not just rhetorical variation.</p></article>
           </div>
-          <p className="ecology-boundary"><strong>Two layers, kept distinct:</strong> the pilot produces a limited empirical result; the wider programme asks what such results could mean for digital identity and for the diversity of ideas in human–AI systems.</p>
+          <p className="ecology-boundary"><strong>Interpretation boundary:</strong> retaining more possibilities is not automatically safer. Critical-hypothesis retention must be read alongside accuracy, calibration and test quality; otherwise diversity can become noise or indiscriminate suspicion.</p>
+          <div id="wider" className="wider-head section-head light">
+            <div><p className="eyebrow">The wider inquiry</p><h2>Safety is immediate. The implications travel further.</h2></div>
+            <p>The same concentration of cognitive infrastructure also matters for culture, politics, society and philosophy.</p>
+          </div>
+          <div className="ecology-grid">
+            <article><span>ART</span><h3>Can we perceive what is absent?</h3><p>Art can make convergence visible: repeated metaphors, familiar futures and conceptual regions that no agent enters.</p></article>
+            <article><span>POLITICS</span><h3>Who shapes cognitive infrastructure?</h3><p>Apparently plural assistants may inherit correlated assumptions from a small number of models, concentrating the power to define plausible ideas.</p></article>
+            <article><span>SOCIETY</span><h3>Which experiences survive compression?</h3><p>Low-frequency languages, situated knowledge and minority explanations may be especially easy to lose.</p></article>
+            <article><span>PHILOSOPHY</span><h3>What makes one mind different?</h3><p>Behavioral differentiation cannot establish consciousness, but it can sharpen what we mean when we count models, personas and conversations as distinct agents.</p></article>
+          </div>
         </div>
       </section>
 
@@ -240,6 +252,18 @@ export function ExperimentApp() {
           <article><span>02</span><h3>Hypothesis diversity</h3><p>How widely does a condition distribute its primary hypotheses? Higher means more alternatives are represented across the population.</p></article>
           <article><span>03</span><h3>Accuracy</h3><p>How often is the keyed explanation selected? Diversity without contact with truth can simply be noise, so exploration and performance are shown separately.</p></article>
           <article><span>04</span><h3>Shared-error concentration</h3><p>When agents are wrong, do they choose the same wrong answer? Higher concentration suggests correlated blind spots and therefore less epistemic independence.</p></article>
+        </div>
+        <div className="safety-probe">
+          <div><p className="eyebrow">SAFETY PROBE</p><h3>Does the population preserve a low-probability but consequential hypothesis?</h3><p>Each mystery designates one failure explanation whose omission could invalidate evidence or make a follow-up unsafe. Retention means it appears as either the primary hypothesis or an explicit alternative. Higher is not automatically better; interpret it beside accuracy and experiment quality.</p></div>
+          {metrics.map((item) => <article key={item.id}><span style={{ background: item.accent }} /><small>{item.label}</small><strong>{percent(item.metrics.criticalRetention)}</strong></article>)}
+        </div>
+        <div className="coverage-probe">
+          <div><p className="eyebrow">MARGINAL EPISTEMIC GAIN</p><h3>Agent count is not necessarily epistemic sample size.</h3><p>For each condition, the curve asks how much of the named hypothesis space is covered as additional candidate agents are included. Rapid saturation means later agents add little new conceptual coverage even if their fingerprints remain distinguishable.</p></div>
+          {coverageCurves.map((item) => {
+            const first = item.points[0];
+            const last = item.points[item.points.length - 1];
+            return <article key={item.id}><span style={{ background: item.accent }} /><small>{item.label}</small><strong>{percent(first?.coverage ?? 0)} → {percent(last?.coverage ?? 0)}</strong><p>Last agent adds {percent(last?.marginalGain ?? 0)}</p></article>;
+          })}
         </div>
         <p className="method-caveat"><strong>Important:</strong> these are descriptive pilot measures, not validated psychometric scales. With only 54 planned observations, the study is designed to reveal useful patterns and failure modes—not establish a general theory of digital identity.</p>
       </section>
@@ -292,6 +316,7 @@ export function ExperimentApp() {
           <h3>Does conversational history create a more stable epistemic fingerprint than a prompted persona—or ordinary stochastic sampling?</h3>
           <div><span>H₀</span><p>Between-agent variation does not exceed within-agent variation.</p><span>H₁</span><p>At least one intervention creates a persistent, cross-task epistemic trace.</p></div>
         </div>
+        <aside className="scope-note"><strong>Safety prediction</strong><p>A genuinely redundant population should not only sound different. It should reduce shared-error concentration and preserve consequential minority hypotheses without sacrificing calibration or discriminating experiment choice.</p></aside>
       </section>
 
       <section id="references" className="section references-section">

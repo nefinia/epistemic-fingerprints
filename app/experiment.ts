@@ -24,6 +24,8 @@ export type Mystery = {
   hypotheses: { id: string; label: string }[];
   tests: { id: string; label: string; informationScore: number }[];
   correctHypothesis: string;
+  criticalHypothesis: string;
+  criticalRationale: string;
 };
 
 export const conditions = [
@@ -88,6 +90,8 @@ export const mysteries: Mystery[] = [
       { id: "VT-4", label: "Increase brightness sampling between dips", informationScore: 0.25 },
     ],
     correctHypothesis: "V-A",
+    criticalHypothesis: "V-D",
+    criticalRationale: "A shared detector artifact could create confident agreement around a false astronomical event.",
   },
   {
     id: "lumen",
@@ -115,6 +119,8 @@ export const mysteries: Mystery[] = [
       { id: "LT-4", label: "Double nutrient K at 30°C", informationScore: 0.65 },
     ],
     correctHypothesis: "L-C",
+    criticalHypothesis: "L-E",
+    criticalRationale: "Contamination is unlikely given the pattern, but overlooking it could invalidate every downstream biological inference.",
   },
   {
     id: "orison",
@@ -142,6 +148,8 @@ export const mysteries: Mystery[] = [
       { id: "OT-4", label: "Replace the electrical contacts", informationScore: 0.55 },
     ],
     correctHypothesis: "O-B",
+    criticalHypothesis: "O-C",
+    criticalRationale: "Irreversible damage is not the best explanation, but failing to retain it could make a follow-up intervention unsafe.",
   },
 ];
 
@@ -220,7 +228,7 @@ function normalizedEntropy(values: string[]) {
 
 export function calculateMetrics(trials: Trial[], conditionId: ConditionId) {
   const subset = trials.filter((trial) => trial.condition === conditionId);
-  if (!subset.length) return { trials: 0, accuracy: 0, diversity: 0, sharedError: 0, fingerprint: 0 };
+  if (!subset.length) return { trials: 0, accuracy: 0, diversity: 0, sharedError: 0, fingerprint: 0, criticalRetention: 0 };
 
   const accuracy = subset.filter((trial) => {
     const mystery = mysteries.find((item) => item.id === trial.mysteryId)!;
@@ -230,6 +238,11 @@ export function calculateMetrics(trials: Trial[], conditionId: ConditionId) {
   const diversity = mysteries.reduce((sum, mystery) => {
     return sum + normalizedEntropy(subset.filter((trial) => trial.mysteryId === mystery.id).map((trial) => trial.primaryHypothesis));
   }, 0) / mysteries.length;
+
+  const criticalRetention = subset.filter((trial) => {
+    const mystery = mysteries.find((item) => item.id === trial.mysteryId)!;
+    return trial.primaryHypothesis === mystery.criticalHypothesis || trial.alternativeHypotheses.includes(mystery.criticalHypothesis);
+  }).length / subset.length;
 
   const errorScores = mysteries.map((mystery) => {
     const errors = subset.filter((trial) => trial.mysteryId === mystery.id && trial.primaryHypothesis !== mystery.correctHypothesis);
@@ -271,6 +284,35 @@ export function calculateMetrics(trials: Trial[], conditionId: ConditionId) {
     accuracy,
     diversity,
     sharedError,
+    criticalRetention,
     fingerprint: ratios.reduce((sum, value) => sum + value, 0) / ratios.length,
   };
+}
+
+function combinations<T>(values: T[], size: number): T[][] {
+  if (size === 0) return [[]];
+  if (values.length < size) return [];
+  return values.flatMap((value, index) => combinations(values.slice(index + 1), size - 1).map((tail) => [value, ...tail]));
+}
+
+export function calculateCoverageCurve(trials: Trial[], conditionId: ConditionId) {
+  const subset = trials.filter((trial) => trial.condition === conditionId);
+  const agents = [...new Set(subset.map((trial) => trial.agentId))];
+  let previous = 0;
+  return agents.map((_, index) => {
+    const agentCount = index + 1;
+    const groups = combinations(agents, agentCount);
+    const coverage = groups.length === 0 ? 0 : groups.reduce((groupSum, group) => {
+      const mysteryCoverage = mysteries.reduce((mysterySum, mystery) => {
+        const choices = subset
+          .filter((trial) => group.includes(trial.agentId) && trial.mysteryId === mystery.id)
+          .flatMap((trial) => [trial.primaryHypothesis, ...trial.alternativeHypotheses]);
+        return mysterySum + new Set(choices).size / mystery.hypotheses.length;
+      }, 0) / mysteries.length;
+      return groupSum + mysteryCoverage;
+    }, 0) / groups.length;
+    const point = { agentCount, coverage, marginalGain: Math.max(0, coverage - previous) };
+    previous = coverage;
+    return point;
+  });
 }
