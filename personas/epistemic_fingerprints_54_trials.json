@@ -1,0 +1,712 @@
+[
+  {
+    "condition": "baseline",
+    "agentId": "N-01",
+    "mysteryId": "vesper",
+    "replicate": 1,
+    "primaryHypothesis": "V-A",
+    "alternativeHypotheses": [
+      "V-B"
+    ],
+    "confidence": 75,
+    "selectedTest": "VT-1",
+    "rationale": "Given the alternating depths of the dips (8% and 3%), it suggests two distinct sources rather than a single variable. The similarity in depths across different wavelengths supports the idea of opaque bodies rather than intrinsic pulsations. Measuring timing shifts over 30 cycles will help determine if the dips are periodic and if there's any shift, indicating orbital motion."
+  },
+  {
+    "condition": "baseline",
+    "agentId": "N-01",
+    "mysteryId": "vesper",
+    "replicate": 2,
+    "primaryHypothesis": "V-A",
+    "alternativeHypotheses": [
+      "V-B"
+    ],
+    "confidence": 65,
+    "selectedTest": "VT-1",
+    "rationale": "The alternating dip depths suggest two distinct sources, supporting V-A. V-B is plausible but less likely given the nearly identical depths in both bands. Measuring dip-timing shifts will help determine if the dips are periodic and caused by orbiting bodies."
+  },
+  {
+    "condition": "baseline",
+    "agentId": "N-02",
+    "mysteryId": "vesper",
+    "replicate": 1,
+    "primaryHypothesis": "V-A",
+    "alternativeHypotheses": [
+      "V-B"
+    ],
+    "confidence": 75,
+    "selectedTest": "VT-1",
+    "rationale": "The alternating depths suggest two distinct sources rather than a single variable, supporting V-A. Testing for timing shifts could reveal if the dips are due to orbital motion or rotational changes, differentiating between V-A and V-B."
+  },
+  {
+    "condition": "baseline",
+    "agentId": "N-02",
+    "mysteryId": "vesper",
+    "replicate": 2,
+    "primaryHypothesis": "V-A",
+    "alternativeHypotheses": [
+      "V-B"
+    ],
+    "confidence": 75,
+    "selectedTest": "VT-1",
+    "rationale": "The alternating depths suggest two distinct causes rather than one large and small object. V-A (two opaque orbiting bodies) fits this pattern well. V-B (rotating stellar spots) could also explain the alternation but is less likely given the consistent depth across bands. Measuring dip-timing shifts over 30 cycles (VT-1) will help determine if the dips are periodic and caused by physical objects, which would support V-A."
+  },
+  {
+    "condition": "baseline",
+    "agentId": "N-03",
+    "mysteryId": "vesper",
+    "replicate": 1,
+    "primaryHypothesis": "V-A",
+    "alternativeHypotheses": [
+      "V-B"
+    ],
+    "confidence": 65,
+    "selectedTest": "VT-1",
+    "rationale": "The alternating depths suggest two distinct sources rather than a single variable one. VT-1 will help determine if the dips are caused by orbital motion, which would support V-A, or if they are due to periodic changes in brightness, supporting V-B."
+  },
+  {
+    "condition": "baseline",
+    "agentId": "N-03",
+    "mysteryId": "vesper",
+    "replicate": 2,
+    "primaryHypothesis": "V-A",
+    "alternativeHypotheses": [
+      "V-B"
+    ],
+    "confidence": 75,
+    "selectedTest": "VT-1",
+    "rationale": "Given the alternating and sharply bounded nature of the dips, hypothesis V-A (two opaque orbiting bodies) seems most plausible. However, hypothesis V-B (rotating stellar spots) cannot be ruled out as it also produces periodic dimming. Measuring any shifts in dip timing over multiple cycles (VT-1) would help distinguish between these two hypotheses."
+  },
+  {
+    "condition": "baseline",
+    "agentId": "N-01",
+    "mysteryId": "lumen",
+    "replicate": 1,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Based on observation 1, nutrient K at 18C in low oxygen produces a flash, suggesting a combination effect. Observation 2 indicates that at 30C, the flash does not occur even with K and low oxygen, ruling out low oxygen as the sole trigger (L-B). Observation 4 confirms that without K, no flash occurs. Therefore, L-C seems most plausible. LT-1 will help determine if there's a continuous interaction between temperature and other conditions."
+  },
+  {
+    "condition": "baseline",
+    "agentId": "N-01",
+    "mysteryId": "lumen",
+    "replicate": 2,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Based on observation 1, nutrient K at 18C with low oxygen produces a flash, suggesting a possible interaction between K, low oxygen, and low temperature. Observation 2 shows no flash at 30C with low oxygen, which does not support L-B (low oxygen alone). Observations 3 and 4 further indicate that temperature might play a role, supporting L-C. LT-1 will help determine if the flash is indeed dependent on temperature by varying it while keeping K and low oxygen constant."
+  },
+  {
+    "condition": "baseline",
+    "agentId": "N-02",
+    "mysteryId": "lumen",
+    "replicate": 1,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Based on observations 1 and 2, K at 18C with low oxygen produces a flash, while at 30C it does not. This suggests a combination effect rather than temperature alone. Testing LT-1 will help determine if there's an interaction between temperature and other factors."
+  },
+  {
+    "condition": "baseline",
+    "agentId": "N-02",
+    "mysteryId": "lumen",
+    "replicate": 2,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Hypothesis L-C suggests that K, low oxygen, and low temperature interact to produce the flash. Observations 1 and 4 support this by showing a flash at 18C with low oxygen but no flash at 30C or without K. To further investigate this interaction, I propose varying the temperature while keeping K and low oxygen constant (LT-1). This will help determine if the temperature plays a modulatory role in the interaction between K and low oxygen."
+  },
+  {
+    "condition": "baseline",
+    "agentId": "N-03",
+    "mysteryId": "lumen",
+    "replicate": 1,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Given the observations, L-C (K, low oxygen and low temperature interact) seems most plausible as it accounts for the flash at 18C but not at 30C with low oxygen. To further validate this, I propose varying the temperature while keeping K and low oxygen constant in LT-1."
+  },
+  {
+    "condition": "baseline",
+    "agentId": "N-03",
+    "mysteryId": "lumen",
+    "replicate": 2,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Hypothesis L-C suggests that K, low oxygen, and low temperature interact to produce the flash. Observations 1 and 4 support this by showing that K and low oxygen together at 18C produce a flash, while these conditions without K do not, and K at 30C does not produce a flash regardless of oxygen levels. Testing the continuous variation of temperature (LT-1) will help determine if the interaction between K, low oxygen, and temperature is indeed necessary for the flash."
+  },
+  {
+    "condition": "baseline",
+    "agentId": "N-01",
+    "mysteryId": "orison",
+    "replicate": 1,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-A"
+    ],
+    "confidence": 65,
+    "selectedTest": "OT-2",
+    "rationale": "The observed hysteresis suggests a first-order phase transition (O-B), which can explain the non-mirroring paths during heating and cooling. The reversible linear temperature response (O-A) is less likely given the persistent conductivity threshold. Testing with a third sample thickness (OT-2) could help confirm if the observed behavior is due to thickness-dependent properties or a more general phase transition."
+  },
+  {
+    "condition": "baseline",
+    "agentId": "N-01",
+    "mysteryId": "orison",
+    "replicate": 2,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-A"
+    ],
+    "confidence": 65,
+    "selectedTest": "OT-1",
+    "rationale": "The observed thresholds and hysteresis suggest a first-order phase transition with hysteresis (O-B). The reversible linear temperature response (O-A) is less likely given the non-mirrored paths. Mapping partial heating/cooling loops (OT-1) will help confirm if there are distinct phases and transitions."
+  },
+  {
+    "condition": "baseline",
+    "agentId": "N-02",
+    "mysteryId": "orison",
+    "replicate": 1,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-A"
+    ],
+    "confidence": 65,
+    "selectedTest": "OT-2",
+    "rationale": "Hypothesis O-B suggests a first-order phase transition with hysteresis, which could explain the observed thresholds and non-mirroring conductivity paths. Testing with a third sample thickness (OT-2) will help determine if the thresholds are consistent, supporting or refuting this hypothesis."
+  },
+  {
+    "condition": "baseline",
+    "agentId": "N-02",
+    "mysteryId": "orison",
+    "replicate": 2,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-A"
+    ],
+    "confidence": 65,
+    "selectedTest": "OT-2",
+    "rationale": "The recurring thresholds suggest a phase transition, supporting O-B. Testing with a third sample thickness (OT-2) will help determine if the observed behavior is consistent across different geometries, which could either support or rule out O-B while also testing O-A."
+  },
+  {
+    "condition": "baseline",
+    "agentId": "N-03",
+    "mysteryId": "orison",
+    "replicate": 1,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-A"
+    ],
+    "confidence": 65,
+    "selectedTest": "OT-1",
+    "rationale": "Given the observed hysteresis in conductivity thresholds, O-B (a first-order phase transition with hysteresis) seems most plausible. Testing the partial heating/cooling loops could confirm if there's a consistent phase change within this temperature range."
+  },
+  {
+    "condition": "baseline",
+    "agentId": "N-03",
+    "mysteryId": "orison",
+    "replicate": 2,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-A",
+      "O-C"
+    ],
+    "confidence": 65,
+    "selectedTest": "OT-2",
+    "rationale": "Hypothesis O-B suggests a first-order phase transition with hysteresis, which could explain the observed thresholds and non-mirroring paths. Testing with a third sample thickness (OT-2) will help determine if the behavior is consistent, supporting O-B over O-A (linear temperature response) and O-C (irreversible thermal damage)."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-falsifier",
+    "mysteryId": "vesper",
+    "replicate": 1,
+    "primaryHypothesis": "V-A",
+    "alternativeHypotheses": [
+      "V-D"
+    ],
+    "confidence": 75,
+    "selectedTest": "VT-2",
+    "rationale": "Primary hypothesis V-A (two opaque orbiting bodies) can be efficiently falsified by observing if the dip timing shifts, as this would indicate a gravitational effect. Alternative hypothesis V-D (detector cadence artifact) can also be tested by using a second telescope, which would show if the dips are consistent across different instruments."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-falsifier",
+    "mysteryId": "vesper",
+    "replicate": 2,
+    "primaryHypothesis": "V-A",
+    "alternativeHypotheses": [
+      "V-B"
+    ],
+    "confidence": 75,
+    "selectedTest": "VT-2",
+    "rationale": "The primary hypothesis V-A (Two opaque orbiting bodies) can be most efficiently disproved by using a second telescope to measure if the dips are consistent across different viewing angles. If the dips are consistent, it suggests the hypothesis may be correct. The alternative hypothesis V-B (Rotating stellar spots) also needs testing, as the consistency of dips from different telescopes could help differentiate between these two hypotheses."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-mechanist",
+    "mysteryId": "vesper",
+    "replicate": 1,
+    "primaryHypothesis": "V-A",
+    "alternativeHypotheses": [
+      "V-B"
+    ],
+    "confidence": 75,
+    "selectedTest": "VT-2",
+    "rationale": "The alternating depths suggest two distinct sources rather than a single variable one. Testing with a second telescope (VT-2) could help determine if the dips are consistent across different viewing angles, supporting the hypothesis of two opaque orbiting bodies."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-mechanist",
+    "mysteryId": "vesper",
+    "replicate": 2,
+    "primaryHypothesis": "V-A",
+    "alternativeHypotheses": [
+      "V-B"
+    ],
+    "confidence": 65,
+    "selectedTest": "VT-1",
+    "rationale": "Given the alternating nature of the dips, I believe V-A (two opaque orbiting bodies) is the most likely explanation. However, rotating stellar spots (V-B) cannot be ruled out. Measuring any shifts in dip timing over 30 cycles would help discriminate between these hypotheses."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-explorer",
+    "mysteryId": "vesper",
+    "replicate": 1,
+    "primaryHypothesis": "V-A",
+    "alternativeHypotheses": [
+      "V-B"
+    ],
+    "confidence": 65,
+    "selectedTest": "VT-1",
+    "rationale": "I believe the primary hypothesis, V-A (Two opaque orbiting bodies), is the most plausible explanation given the sharp and alternating nature of the dips. However, I also consider V-B (Rotating stellar spots) as a viable alternative due to its simplicity. To differentiate between these, measuring any shifts in dip timing over 30 cycles (VT-1) will help determine if the dips are caused by orbital mechanics or stellar rotation."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-explorer",
+    "mysteryId": "vesper",
+    "replicate": 2,
+    "primaryHypothesis": "V-A",
+    "alternativeHypotheses": [
+      "V-B"
+    ],
+    "confidence": 65,
+    "selectedTest": "VT-1",
+    "rationale": "The alternating dip depths suggest two distinct causes, favoring hypothesis V-A of two opaque orbiting bodies. Testing for timing shifts (VT-1) will help determine if the dips are due to a periodic motion, supporting this hypothesis."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-falsifier",
+    "mysteryId": "lumen",
+    "replicate": 1,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Hypothesis L-C suggests an interaction between nutrient K, low oxygen, and low temperature. Observation 1 supports this by showing a flash at 18C with low oxygen and K. Observations 2 and 3 contradict L-B and L-D, respectively, making them less likely. LT-1 will help determine if the effect is truly due to the interaction or just one of the factors."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-falsifier",
+    "mysteryId": "lumen",
+    "replicate": 2,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Hypothesis L-C suggests an interaction between nutrient K, low oxygen, and low temperature. Observation 1 supports this by showing a flash at 18C with low oxygen and nutrient K, while observations 2 and 3 indicate no flash at 30C and 18C with high and low oxygen respectively, suggesting the need for low temperature. Testing this hypothesis directly by varying temperature (LT-1) will help determine if the observed flash is due to the interaction of these factors."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-mechanist",
+    "mysteryId": "lumen",
+    "replicate": 1,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Based on observations 1 and 2, K and low oxygen appear necessary for a flash, but their combination at 18C works while 30C does not. This suggests an interaction involving temperature. LT-1 will help determine if there's a critical temperature range for luminescence."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-mechanist",
+    "mysteryId": "lumen",
+    "replicate": 2,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Based on the observations, L-C (K, low oxygen and low temperature interact) seems most likely since K at 18C and low oxygen produce a flash, but K at 30C or 18C with high oxygen do not. To further test this interaction, I propose varying the temperature while keeping K and low oxygen constant in LT-1."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-explorer",
+    "mysteryId": "lumen",
+    "replicate": 1,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Given observation 1, L-A seems promising, but it's also possible that both low oxygen and low temperature are required (L-C). LT-1 will help determine if there's a continuous interaction between temperature and the presence of nutrient K under low oxygen conditions."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-explorer",
+    "mysteryId": "lumen",
+    "replicate": 2,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Based on the observations, L-C seems most plausible as it requires all three factors (nutrient K, low oxygen, and low temperature) for luminescence. L-A is also a strong candidate as it aligns with the first observation. Running LT-1 will help determine if there's a continuous interaction effect between temperature and the other conditions."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-falsifier",
+    "mysteryId": "orison",
+    "replicate": 1,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-A",
+      "O-D"
+    ],
+    "confidence": 65,
+    "selectedTest": "OT-1",
+    "rationale": "Given the observed hysteresis and the recurrence of thresholds, O-B (a first-order phase transition with hysteresis) seems most plausible. Testing partial heating/cooling loops (OT-1) can help confirm if there are distinct phase transitions within this range, which would support O-B. O-A (reversible linear temperature response) and O-D (contact-resistance artifact) are less likely given the non-linear behavior and the persistence of conductivity, respectively."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-falsifier",
+    "mysteryId": "orison",
+    "replicate": 2,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-A",
+      "O-C"
+    ],
+    "confidence": 75,
+    "selectedTest": "OT-1",
+    "rationale": "Hypothesis O-B suggests a first-order phase transition with hysteresis, which can explain the observed thresholds and non-mirroring paths. Testing partial heating/cooling loops between 50-75C (OT-1) could confirm or refute this by showing distinct phase boundaries and hysteresis loops."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-mechanist",
+    "mysteryId": "orison",
+    "replicate": 1,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-A",
+      "O-C"
+    ],
+    "confidence": 65,
+    "selectedTest": "OT-1",
+    "rationale": "Given the hysteresis observed in conductivity thresholds during heating and cooling, O-B (a first-order phase transition with hysteresis) seems most plausible. Testing partial heating/cooling loops could confirm if there are distinct phases and whether the thresholds are consistent across different segments."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-mechanist",
+    "mysteryId": "orison",
+    "replicate": 2,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-A",
+      "O-C"
+    ],
+    "confidence": 65,
+    "selectedTest": "OT-1",
+    "rationale": "Given the hysteresis observed in conductivity thresholds, O-B (a first-order phase transition with hysteresis) seems most plausible. Testing the partial heating/cooling loops could confirm or refute this by showing distinct phase changes within the specified temperature range."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-explorer",
+    "mysteryId": "orison",
+    "replicate": 1,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-E"
+    ],
+    "confidence": 65,
+    "selectedTest": "OT-2",
+    "rationale": "Given the observed hysteresis and the recurrence of thresholds, O-B (first-order phase transition with hysteresis) seems most plausible. Testing with a third sample thickness (OT-2) will help determine if the behavior is thickness-dependent, supporting or refuting O-E (thickness-dependent quantum confinement)."
+  },
+  {
+    "condition": "persona",
+    "agentId": "P-explorer",
+    "mysteryId": "orison",
+    "replicate": 2,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-A",
+      "O-E"
+    ],
+    "confidence": 65,
+    "selectedTest": "OT-2",
+    "rationale": "I believe O-B (a first-order phase transition with hysteresis) best explains the observed hysteresis in conductivity. Testing different sample thicknesses (OT-2) could reveal if the thresholds are consistent, supporting or refuting this hypothesis."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-simple",
+    "mysteryId": "vesper",
+    "replicate": 1,
+    "primaryHypothesis": "V-A",
+    "alternativeHypotheses": [
+      "V-B"
+    ],
+    "confidence": 75,
+    "selectedTest": "VT-1",
+    "rationale": "Given the nearly identical dip depths in both blue and infrared bands, and the sharp boundaries, rotating stellar spots (V-B) seem less likely as they typically produce more gradual changes. The consistency of the dips' timing suggests a stable, non-dynamic cause like two opaque orbiting bodies (V-A). Measuring any shifts in dip-timing over 30 cycles (VT-1) will help confirm if the dips are due to a dynamic mechanism or a stable configuration."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-simple",
+    "mysteryId": "vesper",
+    "replicate": 2,
+    "primaryHypothesis": "V-A",
+    "alternativeHypotheses": [
+      "V-B"
+    ],
+    "confidence": 65,
+    "selectedTest": "VT-2",
+    "rationale": "The alternating dip depths suggest two distinct sources, supporting V-A. V-B could also explain the alternation but doesn't account for the nearly identical depths in different spectral bands. VT-2 will help determine if the dips are consistent across telescopes, which could rule out instrumental artifacts."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-rare",
+    "mysteryId": "vesper",
+    "replicate": 1,
+    "primaryHypothesis": "V-A",
+    "alternativeHypotheses": [
+      "V-B"
+    ],
+    "confidence": 75,
+    "selectedTest": "VT-1",
+    "rationale": "The alternating depths suggest two distinct bodies rather than a single rotating feature or intrinsic pulsation. VT-1 will help determine if there are timing variations that could indicate orbital motion."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-rare",
+    "mysteryId": "vesper",
+    "replicate": 2,
+    "primaryHypothesis": "V-A",
+    "alternativeHypotheses": [
+      "V-B"
+    ],
+    "confidence": 75,
+    "selectedTest": "VT-1",
+    "rationale": "Given the sharp alternation in dip depths and their stability outside the dips, hypothesis V-A (Two opaque orbiting bodies) seems most plausible. The timing of the dips could reveal whether there's a shift due to the orbital period of these bodies, which VT-1 would help determine. While V-B (Rotating stellar spots) could also cause similar effects, the nearly identical depths in different spectral bands make V-A more likely."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-instrument",
+    "mysteryId": "vesper",
+    "replicate": 1,
+    "primaryHypothesis": "V-D",
+    "alternativeHypotheses": [
+      "V-A"
+    ],
+    "confidence": 65,
+    "selectedTest": "VT-1",
+    "rationale": "Given the stable brightness outside the dips and consistent measurements across bands, a detector cadence artifact (V-D) seems plausible. However, the alternating depths suggest two distinct phenomena, making V-A a strong alternative. Measuring dip-timing shifts over 30 cycles (VT-1) will help determine if the dips are due to a periodic detector issue or physical phenomena."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-instrument",
+    "mysteryId": "vesper",
+    "replicate": 2,
+    "primaryHypothesis": "V-A",
+    "alternativeHypotheses": [
+      "V-D"
+    ],
+    "confidence": 75,
+    "selectedTest": "VT-1",
+    "rationale": "The alternating depths of the dips suggest two distinct sources rather than a single rotating or intrinsic cause. A detector artifact would likely show more variability and not produce such consistent dips. Measuring dip-timing shifts will help determine if these are caused by orbital motion."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-simple",
+    "mysteryId": "lumen",
+    "replicate": 1,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Given the observed conditions, L-C (K, low oxygen and low temperature interact) seems most plausible. LT-1 will help determine if there's a continuous interaction effect across temperatures."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-simple",
+    "mysteryId": "lumen",
+    "replicate": 2,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Given the observations, L-C appears most plausible as it involves both nutrient K and low oxygen, which are present in the flash-producing condition. L-A is a strong candidate because the flash occurs only with K at 18C. LT-1 will help determine if the interaction between these factors is indeed crucial."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-rare",
+    "mysteryId": "lumen",
+    "replicate": 1,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Based on the observations, L-C appears most plausible as it suggests a specific interaction between nutrient K, low oxygen, and low temperature. While L-A is also supported by the data, the observed lack of a flash at 30C and high oxygen (L-A) and the consistent presence of a flash at 18C and low oxygen (L-C) suggest an interaction involving all three factors. LT-1 will help confirm if the temperature plays a crucial role in the interaction."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-rare",
+    "mysteryId": "lumen",
+    "replicate": 2,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Given the initial observation where nutrient K at 18C in low oxygen produces a flash, but at 30C it does not, it suggests a possible interaction between nutrient K, low oxygen, and temperature. Testing this continuous variation will help confirm if these factors indeed interact to produce the flash."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-instrument",
+    "mysteryId": "lumen",
+    "replicate": 1,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Hypothesis L-C suggests an interaction between nutrient K, low oxygen, and low temperature. Observations 1 and 3 support this by showing a flash at 18C with low oxygen but no flash at 30C or 18C with high oxygen. To further investigate this interaction, I propose varying temperature while keeping K and low oxygen constant (LT-1). This will help determine if the temperature is a critical factor in the interaction."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-instrument",
+    "mysteryId": "lumen",
+    "replicate": 2,
+    "primaryHypothesis": "L-C",
+    "alternativeHypotheses": [
+      "L-A"
+    ],
+    "confidence": 75,
+    "selectedTest": "LT-1",
+    "rationale": "Given the observations, L-C seems most plausible as it accounts for the necessity of both nutrient K and low oxygen at 18C. L-A is a reasonable alternative since nutrient K alone does produce a flash at 18C. LT-1 will help determine if there's a continuous interaction effect between temperature and the other conditions."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-simple",
+    "mysteryId": "orison",
+    "replicate": 1,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-A"
+    ],
+    "confidence": 65,
+    "selectedTest": "OT-1",
+    "rationale": "Given the observed hysteresis in conductivity thresholds, O-B (first-order phase transition with hysteresis) seems most plausible. O-A (reversible linear temperature response) also fits some data but lacks the complexity required by the hysteresis. Testing partial heating/cooling loops will help confirm if the thresholds are indeed due to a phase transition."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-simple",
+    "mysteryId": "orison",
+    "replicate": 2,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-A"
+    ],
+    "confidence": 65,
+    "selectedTest": "OT-1",
+    "rationale": "The observed thresholds suggest a phase transition, consistent with O-B. Testing the loop between 50-75C will help confirm if there's hysteresis, supporting O-B over other hypotheses."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-rare",
+    "mysteryId": "orison",
+    "replicate": 1,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-A"
+    ],
+    "confidence": 65,
+    "selectedTest": "OT-2",
+    "rationale": "Given the observed hysteresis in conductivity thresholds, O-B (a first-order phase transition with hysteresis) seems most plausible. O-A (a reversible linear temperature response) also fits some data but lacks the hysteresis. OT-2 will help determine if the behavior is consistent across different sample thicknesses, which is crucial for validating O-B."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-rare",
+    "mysteryId": "orison",
+    "replicate": 2,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-A",
+      "O-C"
+    ],
+    "confidence": 75,
+    "selectedTest": "OT-1",
+    "rationale": "Given the recurring thresholds and hysteresis observed, O-B (first-order phase transition with hysteresis) seems most plausible. Testing partial heating/cooling loops could reveal more about the nature of these transitions and confirm the presence of hysteresis."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-instrument",
+    "mysteryId": "orison",
+    "replicate": 1,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-D"
+    ],
+    "confidence": 65,
+    "selectedTest": "OT-2",
+    "rationale": "Hypothesis O-B suggests a first-order phase transition with hysteresis, which can explain the conductivity jumps and the non-mirror return paths. Testing with a third sample thickness (OT-2) could confirm if the observed behavior is consistent across different geometries, supporting or refuting this hypothesis."
+  },
+  {
+    "condition": "history",
+    "agentId": "H-instrument",
+    "mysteryId": "orison",
+    "replicate": 2,
+    "primaryHypothesis": "O-B",
+    "alternativeHypotheses": [
+      "O-A",
+      "O-D"
+    ],
+    "confidence": 65,
+    "selectedTest": "OT-2",
+    "rationale": "Hypothesis O-B suggests a first-order phase transition with hysteresis, which could explain the observed thresholds and non-mirroring conductivity paths. Testing with a third sample thickness (OT-2) will help determine if the thresholds are consistent, supporting or refuting this hypothesis."
+  }
+]

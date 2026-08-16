@@ -7,7 +7,7 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.cluster import AgglomerativeClustering
 
-def analyze_and_plot_epistemic_diversity(input_json_path="epistemic_fingerprints_120_trials.json"):
+def analyze_and_plot_epistemic_diversity(input_json_path="epistemic_fingerprints_54_trials.json"):
     # 1. Load the Data
     with open(input_json_path, "r") as f:
         data = json.load(f)
@@ -17,9 +17,9 @@ def analyze_and_plot_epistemic_diversity(input_json_path="epistemic_fingerprints
     # 2. Embed the Main Hypotheses
     print("Loading Sentence Transformer...")
     model = SentenceTransformer('all-MiniLM-L6-v2')
-    
+
     print("Embedding hypotheses...")
-    embeddings = model.encode(df['main_hypothesis'].tolist())
+    embeddings = model.encode(df['primaryHypothesis'].tolist())
     
     # 3. Cluster Hypotheses to Measure "Epistemic Diversity"
     # Using Agglomerative Clustering. A distance threshold of 0.4 implies 
@@ -44,13 +44,13 @@ def analyze_and_plot_epistemic_diversity(input_json_path="epistemic_fingerprints
     plt.figure(figsize=(10, 8))
     
     # Calculate average similarity between different agents across all trials
-    agents = df['agent'].unique()
+    agents = df['agentId'].unique()
     sim_matrix = np.zeros((len(agents), len(agents)))
-    
+
     for i, agent_a in enumerate(agents):
         for j, agent_b in enumerate(agents):
-            embed_a = embeddings[df['agent'] == agent_a]
-            embed_b = embeddings[df['agent'] == agent_b]
+            embed_a = embeddings[df['agentId'] == agent_a]
+            embed_b = embeddings[df['agentId'] == agent_b]
             
             # Cross-similarity between all hypotheses of agent A and agent B
             cross_sim = cosine_similarity(embed_a, embed_b)
@@ -72,10 +72,10 @@ def analyze_and_plot_epistemic_diversity(input_json_path="epistemic_fingerprints
     plt.figure(figsize=(12, 6))
     
     # Group by Condition and Agent, count unique clusters
-    diversity_df = df.groupby(['condition', 'agent'])['claim_cluster_id'].nunique().reset_index()
+    diversity_df = df.groupby(['condition', 'agentId'])['claim_cluster_id'].nunique().reset_index()
     diversity_df.rename(columns={'claim_cluster_id': 'Unique Hypotheses'}, inplace=True)
-    
-    sns.barplot(data=diversity_df, x="agent", y="Unique Hypotheses", hue="condition", palette="viridis")
+
+    sns.barplot(data=diversity_df, x="agentId", y="Unique Hypotheses", hue="condition", palette="viridis")
     plt.title("Epistemic Diversity: Unique Hypothesis Clusters per Agent", pad=20)
     plt.ylabel("Number of Unique Claims")
     plt.xlabel("Agent Persona")
@@ -84,5 +84,5 @@ def analyze_and_plot_epistemic_diversity(input_json_path="epistemic_fingerprints
     plt.savefig("fig_2_epistemic_diversity.png", dpi=300)
     print("Saved Epistemic Diversity Chart -> fig_2_epistemic_diversity.png")
 
-# To run the evaluation:
-analyze_and_plot_epistemic_diversity()
+if __name__ == "__main__":
+    analyze_and_plot_epistemic_diversity()

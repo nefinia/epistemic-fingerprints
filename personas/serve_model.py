@@ -1,37 +1,57 @@
+import subprocess
 import modal
 
-# Define the container image with vLLM installed
-vllm_image = modal.Image.debian_slim().pip_install("vllm==0.6.0")
+MODEL_NAME = "Qwen/Qwen2.5-7B-Instruct"
+VLLM_PORT = 8000
+MINUTES = 60
+
+vllm_image = (
+    modal.Image.from_registry(
+        "nvidia/cuda:12.9.0-devel-ubuntu22.04",
+        add_python="3.12",
+    )
+    .entrypoint([])
+    .env({
+        "VLLM_USE_FLASHINFER_SAMPLER": "0",
+    })
+    .uv_pip_install("vllm==0.21.0")
+)
 
 app = modal.App("epistemic-vllm-server")
 
-# Define the model. Qwen 2.5 requires no API keys or HuggingFace tokens.
-MODEL_NAME = "Qwen/Qwen2.5-7B-Instruct"
 
-
-@app.function(
+@app.server(
     image=vllm_image,
-    gpu="A10G",
-    min_containers=0,
+    gpu=["A10G", "L4"],
+    port=VLLM_PORT,
+    startup_timeout=10 * MINUTES,
+    scaledown_window=5 * MINUTES,
+    target_concurrency=10,
+    unauthenticated=True,
 )
-@modal.concurrent(max_inputs=10)
-@modal.asgi_app()
-def serve():
-    import vllm
-    from vllm.entrypoints.openai.api_server import build_app
-    from vllm.entrypoints.openai.cli_args import make_arg_parser
+class Server:
 
-    # Initialize the vLLM engine
-    parser = make_arg_parser()
-    args = parser.parse_args([
-        "--model", MODEL_NAME,
-        "--gpu-memory-utilization", "0.90",
-        "--max-model-len", "4096",
-    ])
+    @modal.enter()
+    def start(self):
+        cmd = [
+            "vllm",
+            "serve",
+            MODEL_NAME,
+            "--served-model-name",
+            MODEL_NAME,
+            "--host",
+            "0.0.0.0",
+            "--port",
+            str(VLLM_PORT),
+            "--gpu-memory-utilization",
+            "0.90",
+            "--max-model-len",
+            "4096",
+        ]
 
-    engine = vllm.AsyncLLMEngine.from_engine_args(
-        vllm.AsyncEngineArgs.from_cli_args(args)
-    )
+        print("Starting:", " ".join(cmd))
+        self.process = subprocess.Popen(cmd)
 
-    # Return the FastAPI app that mimics OpenAI's endpoint
-    return build_app(args)
+    @modal.exit()
+    def stop(self):
+        self.process.terminate()
