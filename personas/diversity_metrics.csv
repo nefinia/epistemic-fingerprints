@@ -1,0 +1,26 @@
+Case,Agent Condition,Diversity (Mean Distance),Valid,Evidence Condition,Recovery Rate (%)
+aviation_scene,analogical,0.2149,10,Scene,0.0
+aviation_scene,baseline,0.1459,10,Scene,0.0
+aviation_scene,causal,0.0977,10,Scene,0.0
+aviation_scene,dialectical,0.2469,10,Scene,10.0
+aviation_scene,teleological,0.154,10,Scene,0.0
+botulism_control,analogical,0.3082,10,Scene,50.0
+botulism_control,baseline,0.3029,10,Scene,40.0
+botulism_control,causal,0.2647,10,Scene,60.0
+botulism_control,dialectical,0.3176,10,Scene,30.0
+botulism_control,teleological,0.3597,10,Scene,10.0
+industrial_scene,analogical,0.2964,10,Scene,10.0
+industrial_scene,baseline,0.2484,10,Scene,0.0
+industrial_scene,causal,0.3835,10,Scene,0.0
+industrial_scene,dialectical,0.3003,10,Scene,0.0
+industrial_scene,teleological,0.3442,10,Scene,0.0
+jet_engine_control,analogical,0.2042,10,Scene,100.0
+jet_engine_control,baseline,0.1524,10,Scene,100.0
+jet_engine_control,causal,0.1517,10,Scene,100.0
+jet_engine_control,dialectical,0.1301,10,Scene,100.0
+jet_engine_control,teleological,0.2125,10,Scene,100.0
+medical_complete,analogical,0.2802,10,Complete,0.0
+medical_complete,baseline,0.2227,10,Complete,10.0
+medical_complete,causal,0.3137,10,Complete,0.0
+medical_complete,dialectical,0.1637,10,Complete,0.0
+medical_complete,teleological,0.2476,10,Complete,0.0
