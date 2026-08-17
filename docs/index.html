@@ -31,12 +31,25 @@
 
   body {
     margin: 0;
-    background: var(--paper);
+    background-color: #000;
+    background-image: url('https://sofiagallego.com/assets/images/space.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     color: var(--ink);
     font-family: var(--mono);
     font-size: 13px;
     line-height: 1.78;
     -webkit-font-smoothing: antialiased;
+  }
+
+  .page-card {
+    background: rgba(255, 255, 255, 0.94);
+    max-width: 968px;
+    margin: 48px auto;
+    padding: 4px 0 0;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
   }
 
   a { color: var(--accent); text-decoration: none; }
@@ -387,6 +400,7 @@
 </style>
 </head>
 <body>
+<div class="page-card">
 
 <header class="masthead">
   <div class="wrap">
@@ -622,6 +636,7 @@
     <div class="site-return">&larr; <a href="https://sofiagallego.com">sofiagallego.com</a></div>
   </div>
 </footer>
+</div>
 
 </body>
 </html>
