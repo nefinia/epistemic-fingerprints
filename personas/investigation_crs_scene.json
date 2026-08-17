@@ -1,0 +1,625 @@
+[
+  {
+    "caseId": "crs_florida",
+    "condition": "baseline",
+    "agentId": "baseline",
+    "replicate": 1,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The infant may have been affected by a congenital infection during pregnancy, leading to a combination of conditions such as small for gestational age, microcephaly, respiratory distress, thrombocytopenia, and cataracts, along with the patent ductus arteriosus and hearing deficit.",
+    "alternative_hypotheses": [
+      "The infant may have inherited a genetic mutation causing multiple congenital anomalies.",
+      "The infant may have experienced a metabolic disorder affecting development and organ function.",
+      "The infant may have suffered from an immune-mediated condition during fetal development."
+    ],
+    "mechanism": "In utero exposure to a pathogen or infectious agent could have led to a cascade of events including impaired growth, neurological deficits, and organ-specific damage.",
+    "evidence_for": [
+      "Small for gestational age can sometimes be associated with intrauterine growth restriction due to infections or other factors.",
+      "Microcephaly often has infectious etiologies, including cytomegalovirus (CMV) and rubella.",
+      "Respiratory distress and thrombocytopenia can be seen in neonates with certain infections.",
+      "Cataracts in infants are occasionally caused by maternal infections or toxins.",
+      "Hearing deficits can also be associated with infections that affect the developing ear structures."
+    ],
+    "evidence_against": [
+      "No family history of similar congenital conditions might suggest a sporadic or de novo occurrence."
+    ],
+    "missing_information": [
+      "Maternal history of infections during pregnancy",
+      "Detailed viral serology or molecular testing for infectious agents",
+      "Specific imaging or genetic testing to rule out genetic syndromes"
+    ],
+    "confidence": 75,
+    "next_test": "Perform comprehensive serological tests for common congenital infections (such as CMV, toxoplasmosis, and rubella) and consider genetic testing for potential hereditary causes."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "persona",
+    "agentId": "causal_mechanist",
+    "replicate": 1,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The combination of small for gestational age, microcephaly, respiratory distress, thrombocytopenia, rash, congenital heart defect, cataracts, and hearing deficit may be due to a mechanical obstruction or restriction during fetal development that led to hypoxia-ischemia, affecting multiple organ systems.",
+    "alternative_hypotheses": [
+      "Genetic mutations leading to multiple congenital anomalies",
+      "Infectious etiology such as cytomegalovirus or toxoplasmosis",
+      "Maternal immune-mediated conditions causing fetal injury",
+      "Environmental toxic exposure during pregnancy"
+    ],
+    "mechanism": "A mechanical compression or obstruction within the uterine environment may have restricted blood flow and oxygen supply to the developing fetus, leading to hypoxia-ischemia and subsequent organ dysfunction and malformations.",
+    "evidence_for": [
+      "Small for gestational age suggests growth restriction which can result from compromised blood flow and oxygen delivery",
+      "Microcephaly and congenital heart defect suggest early developmental insults",
+      "Respiratory distress, thrombocytopenia, and rash indicate systemic effects of hypoxia",
+      "Hearing deficit and cataracts are consistent with ischemic damage to the brain and eye tissues"
+    ],
+    "evidence_against": [
+      "No clear evidence of infection or genetic syndromes",
+      "Pregnancy appeared uncomplicated otherwise"
+    ],
+    "missing_information": [
+      "Detailed fetal imaging (e.g., ultrasound) to identify any intrauterine mechanical restrictions",
+      "Maternal medical history for potential sources of systemic inflammation or toxicity",
+      "Detailed family history for rare genetic syndromes"
+    ],
+    "confidence": 75,
+    "next_test": "Perform detailed fetal imaging (e.g., MRI) to look for any mechanical obstructions or abnormalities that could explain the observed symptoms."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "baseline",
+    "agentId": "baseline",
+    "replicate": 2,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The infant may have been exposed to a maternal infection during pregnancy that led to a range of congenital anomalies, including microcephaly, respiratory distress, thrombocytopenia, rash, and congenital heart defects.",
+    "alternative_hypotheses": [
+      "Genetic mutation leading to the observed conditions.",
+      "Intrauterine growth restriction due to placental insufficiency or maternal health issues.",
+      "Complication from a rare genetic syndrome with multiple congenital anomalies."
+    ],
+    "mechanism": "Maternal infection can cross the placenta and affect fetal development, leading to a range of congenital abnormalities. Common infections include rubella, cytomegalovirus, and toxoplasmosis.",
+    "evidence_for": [
+      "The presence of microcephaly, which can be caused by viral or bacterial infections in utero.",
+      "Respiratory distress and thrombocytopenia, which can be complications of maternal infection or immune-mediated responses in the fetus.",
+      "Generalized rash, which can be a sign of a systemic reaction or infection.",
+      "Congenital heart defect (patent ductus arteriosus), which can occur as a result of various intrauterine insults, including infections.",
+      "Cataracts in both eyes, which can be associated with intrauterine infections like toxoplasmosis."
+    ],
+    "evidence_against": [],
+    "missing_information": [
+      "Details on the mother's health and exposure to potential pathogens during pregnancy.",
+      "Further genetic testing to rule out a genetic disorder.",
+      "Complete clinical and laboratory findings to confirm or rule out specific infections."
+    ],
+    "confidence": 75,
+    "next_test": "Perform a comprehensive serological screening for common intrauterine infections such as rubella, cytomegalovirus, and toxoplasmosis, along with genetic testing to identify any potential genetic syndromes."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "persona",
+    "agentId": "analogical_thinker",
+    "replicate": 2,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The infant experienced a genetic anomaly leading to a syndrome characterized by microcephaly, heart defects, and ocular abnormalities, which may have been exacerbated by respiratory issues due to prematurity or other factors.",
+    "alternative_hypotheses": [
+      "Intrauterine infection leading to a systemic inflammatory response affecting multiple organ systems.",
+      "Perinatal asphyxia resulting in hypoxic-ischemic encephalopathy and subsequent multi-organ dysfunction.",
+      "Metabolic disorder manifesting in congenital malformations and systemic symptoms.",
+      "Toxic exposure during pregnancy from environmental or maternal factors."
+    ],
+    "mechanism": "A genetic mutation likely caused a developmental error in the fetus, leading to microcephaly and congenital heart defects, while also affecting ocular development and possibly contributing to the skin rash and thrombocytopenia through a systemic inflammatory response.",
+    "evidence_for": [
+      "Small for gestational age and microcephaly suggest a developmental issue from early fetal life.",
+      "Congenital heart defect and cataracts indicate genetic or developmental anomalies affecting multiple organ systems.",
+      "Generalized rash and thrombocytopenia could be related to a systemic inflammatory response or secondary to a metabolic disorder."
+    ],
+    "evidence_against": [
+      "No family history of similar conditions suggests a sporadic mutation rather than a hereditary condition.",
+      "Pregnancy progressing to full term without previous signs of issues implies a sudden onset during late stages."
+    ],
+    "missing_information": [
+      "Detailed genetic testing results to confirm or rule out a specific genetic syndrome.",
+      "Complete blood work and metabolic panel to identify any underlying metabolic disorders.",
+      "Infection screening to rule out intrauterine infection."
+    ],
+    "confidence": 75,
+    "next_test": "Perform comprehensive genetic sequencing and metabolic testing to identify potential genetic mutations or metabolic imbalances causing the observed symptoms."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "baseline",
+    "agentId": "baseline",
+    "replicate": 3,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The infant's condition is likely due to a genetic syndrome that manifests during fetal development and is characterized by microcephaly, thrombocytopenia, respiratory distress, and other associated features such as congenital heart defects, cataracts, and hearing deficits.",
+    "alternative_hypotheses": [
+      "The infant may have acquired an infection in utero that led to these symptoms.",
+      "The condition could be the result of exposure to a teratogen during pregnancy.",
+      "There might be a metabolic disorder present that causes these symptoms."
+    ],
+    "mechanism": "A genetic mutation affecting multiple organ systems leads to the observed symptoms.",
+    "evidence_for": [
+      "The infant is small for gestational age, suggesting a genetic or developmental issue.",
+      "Microcephaly is often a feature of genetic syndromes.",
+      "Congenital heart defects, cataracts, and hearing deficits can all be part of genetic disorders.",
+      "Thrombocytopenia can occur in genetic conditions or as a secondary response to other underlying issues."
+    ],
+    "evidence_against": [
+      "No family history of similar conditions, which could suggest a de novo mutation."
+    ],
+    "missing_information": [
+      "Genetic testing results to identify a specific syndrome or mutation.",
+      "Details about maternal health and exposures during pregnancy."
+    ],
+    "confidence": 85,
+    "next_test": "Perform comprehensive genetic testing including chromosomal microarray and whole exome sequencing to identify potential genetic mutations."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "persona",
+    "agentId": "teleological_tmk",
+    "replicate": 3,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The combination of small for gestational age, microcephaly, respiratory distress, cyanosis, thrombocytopenia, generalized rash, congenital heart defect, cataracts, and hearing deficit may be due to an infection or toxic exposure during fetal development, potentially caused by maternal consumption of a specific substance that is rare and has unknown effects.",
+    "alternative_hypotheses": [
+      "Genetic mutation causing multiple congenital anomalies without an infectious or toxic exposure."
+    ],
+    "mechanism": "Maternal consumption of a specific substance led to a toxic effect on fetal development, resulting in a range of congenital anomalies including growth restriction, central nervous system impairment, cardiovascular defects, ocular abnormalities, and sensory deficits.",
+    "evidence_for": [
+      "Small for gestational age often indicates intrauterine growth restriction, which can be caused by various factors including maternal infections or toxins.",
+      "Microcephaly suggests impaired brain development, possibly due to toxic effects or infections.",
+      "Respiratory distress and cyanosis could be secondary to the heart defect and systemic effects of the toxic substance.",
+      "Thrombocytopenia might indicate a systemic response to a toxin or underlying condition.",
+      "Generalized rash could be a sign of an immune response to a substance or infection.",
+      "Congenital heart defect (patent ductus arteriosus) supports the idea of a developmental issue present from early stages of pregnancy.",
+      "Cataracts and hearing deficit further indicate potential toxic effects or infections affecting multiple organ systems.",
+      "No family history suggests this may be a sporadic event rather than inherited."
+    ],
+    "evidence_against": [],
+    "missing_information": [
+      "Details of the mother's medical history and lifestyle during pregnancy, especially any unusual exposures.",
+      "Results of genetic testing to rule out genetic mutations.",
+      "Specific tests to identify the presence of any toxins or infectious agents."
+    ],
+    "confidence": 75,
+    "next_test": "Perform detailed maternal serum screening for common and rare toxins, as well as comprehensive infectious disease panel, to identify potential causative factors."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "baseline",
+    "agentId": "baseline",
+    "replicate": 4,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The infant may have been affected by a congenital infection, such as cytomegalovirus (CMV) or toxoplasmosis, which can lead to a variety of symptoms including small for gestational age, microcephaly, respiratory distress, thrombocytopenia, rash, congenital heart defects, cataracts, and hearing deficits.",
+    "alternative_hypotheses": [
+      "Genetic disorder, such as a syndrome involving multiple congenital anomalies like Smith-Lemli-Opitz Syndrome or Cornelia de Lange Syndrome, which could explain the range of symptoms observed.",
+      "Metabolic disorder, possibly one that affects growth and development but is less commonly associated with specific ocular and cardiac abnormalities.",
+      "Toxic exposure during pregnancy, such as from medications or environmental toxins, though this is less common and usually has more specific patterns of symptoms."
+    ],
+    "mechanism": "The congenital infection likely led to intrauterine growth restriction, direct damage to fetal tissues (including brain and eye structures), and possibly inflammation or immune responses that caused systemic effects such as thrombocytopenia and rash.",
+    "evidence_for": [
+      "Microcephaly, cataracts, and hearing deficit are all recognized features of congenital CMV or toxoplasmosis infections.",
+      "Respiratory distress and thrombocytopenia can be part of the systemic inflammatory response seen in congenital infections.",
+      "Generalized rash is sometimes reported in newborns with congenital CMV or toxoplasmosis."
+    ],
+    "evidence_against": [
+      "The absence of a clear family history of similar conditions.",
+      "The specific presentation does not immediately suggest a genetic disorder based on common presentations."
+    ],
+    "missing_information": [
+      "Maternal serology results to check for recent infection with CMV or Toxoplasma gondii.",
+      "Details on any prenatal screening or ultrasound findings that might indicate a specific diagnosis."
+    ],
+    "confidence": 75,
+    "next_test": "Perform PCR testing on maternal serum or urine to look for CMV or Toxoplasma gondii DNA, and consider imaging studies or tissue biopsy if necessary to confirm the suspected congenital infection."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "persona",
+    "agentId": "dialectical_siev",
+    "replicate": 4,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The infant's condition is the result of a rare genetic mutation that manifests as a combination of small for gestational age (SGA), microcephaly, respiratory distress, thrombocytopenia, generalized rash, congenital heart defects, cataracts, and hearing deficit, possibly exacerbated by perinatal events such as hypoxia or infection.",
+    "alternative_hypotheses": [
+      "The infant's condition is due to a perinatal infection causing systemic inflammation and organ dysfunction.",
+      "The infant's condition is the result of a rare metabolic disorder that presents with multiple organ system involvement.",
+      "The infant's condition is caused by exposure to teratogenic agents during pregnancy, such as drugs or environmental toxins."
+    ],
+    "mechanism": "A genetic mutation likely disrupts multiple developmental pathways, leading to the observed abnormalities in growth, brain development, cardiovascular system, and sensory organs, while also potentially causing an inflammatory response and coagulopathy.",
+    "evidence_for": [
+      "The presence of multiple congenital anomalies suggests a genetic or inherited condition.",
+      "The combination of respiratory distress, thrombocytopenia, and rash could indicate a systemic inflammatory response.",
+      "Genetic mutations can cause both SGA and microcephaly.",
+      "Congenital heart defects and cataracts can have a genetic basis.",
+      "Hearing deficits can be associated with genetic syndromes."
+    ],
+    "evidence_against": [
+      "No family history of similar conditions rules out genetic factors but does not completely eliminate them.",
+      "The absence of specific markers for infections or metabolic disorders does not rule out these possibilities.",
+      "The infant's normal pregnancy course until delivery suggests that the condition may not be due to perinatal exposures.",
+      "Genetic testing may need to be more comprehensive to rule out rare variants."
+    ],
+    "missing_information": [
+      "Comprehensive genetic testing results to identify potential mutations.",
+      "Detailed maternal medical history and exposure assessment.",
+      "Complete blood work and imaging studies to rule out infectious or metabolic causes.",
+      "Histopathological examination of tissue samples if available."
+    ],
+    "confidence": 75,
+    "next_test": "Initiate comprehensive genetic testing, including exome sequencing, to identify any potential genetic mutations contributing to the infant's condition."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "baseline",
+    "agentId": "baseline",
+    "replicate": 5,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The infant may have been affected by a genetic syndrome or mutation leading to the observed combination of symptoms, including microcephaly, respiratory distress, thrombocytopenia, rash, congenital heart defect, cataracts, and hearing deficit.",
+    "alternative_hypotheses": [
+      "The infant might have acquired an infection during pregnancy or delivery that caused these symptoms.",
+      "The symptoms could be due to complications from a placental issue, such as fetal growth restriction.",
+      "The infant could have been exposed to a teratogen in utero."
+    ],
+    "mechanism": "A genetic mutation may have altered the normal developmental processes, resulting in multiple congenital anomalies.",
+    "evidence_for": [
+      "Microcephaly and other congenital defects often have a genetic basis.",
+      "Congenital heart defects, cataracts, and hearing deficits can be linked to genetic disorders.",
+      "Thrombocytopenia can be associated with certain genetic syndromes or infections."
+    ],
+    "evidence_against": [
+      "There was no family history of similar congenital conditions, making inherited genetic syndromes less likely."
+    ],
+    "missing_information": [
+      "A thorough genetic testing panel should be conducted to identify any potential genetic mutations.",
+      "Further investigation into possible infectious agents and their effects on fetal development."
+    ],
+    "confidence": 75,
+    "next_test": "Genetic sequencing and comprehensive metabolic screening to identify any potential genetic causes."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "persona",
+    "agentId": "causal_mechanist",
+    "replicate": 5,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The combination of symptoms, including small for gestational age, microcephaly, respiratory distress, cyanosis, thrombocytopenia, a generalized rash, a congenital heart defect, cataracts, and a hearing deficit, may be due to a mechanical interference during fetal development, possibly related to a blood clot or vascular issue.",
+    "alternative_hypotheses": [
+      "Genetic mutation causing all the observed symptoms simultaneously",
+      "Maternal infection leading to fetal developmental issues",
+      "Exposure to environmental toxins during pregnancy"
+    ],
+    "mechanism": "A blood clot or vascular obstruction during fetal development could have caused hypoxia, which led to microcephaly, respiratory distress, and other symptoms. Thrombocytopenia and the rash could be due to disseminated intravascular coagulation (DIC) resulting from the clot. The heart defect and ocular abnormalities could also be secondary effects of hypoxia and poor circulation.",
+    "evidence_for": [
+      "Thrombocytopenia, which can be a sign of disseminated intravascular coagulation (DIC) often associated with blood clots",
+      "Generalized rash, which can be a symptom of DIC or other systemic inflammatory responses",
+      "Respiratory distress and cyanosis, indicating possible hypoxia",
+      "Congenital heart defect and cataracts, which can be secondary to hypoxia and poor circulation",
+      "Small for gestational age, which can be due to reduced blood flow to the fetus"
+    ],
+    "evidence_against": [
+      "No family history of similar conditions suggests a genetic mutation is less likely",
+      "Pregnancy proceeding to full term with no prior signs of fetal distress makes a severe maternal infection less probable"
+    ],
+    "missing_information": [
+      "Details about the exact timing and location of the suspected blood clot or vascular obstruction",
+      "Further genetic testing to rule out rare genetic disorders",
+      "Detailed maternal medical history and prenatal care records to identify potential environmental exposures or infections"
+    ],
+    "confidence": 75,
+    "next_test": "Perform imaging studies such as an MRI or ultrasound to visualize the placenta and fetal vasculature, looking for signs of vascular malformations or obstructions."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "baseline",
+    "agentId": "baseline",
+    "replicate": 6,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The infant may have been exposed to a teratogenic agent during pregnancy, leading to multiple congenital anomalies including small for gestational age, microcephaly, respiratory distress, thrombocytopenia, rash, congenital heart defect, cataracts, and hearing deficit.",
+    "alternative_hypotheses": [
+      "Genetic disorder",
+      "Maternal infection",
+      "Accidental overdose or exposure to medication during pregnancy"
+    ],
+    "mechanism": "Exposure to a teratogen likely interfered with normal fetal development, resulting in multiple congenital abnormalities.",
+    "evidence_for": [
+      "Small for gestational age and microcephaly suggest developmental issues during pregnancy.",
+      "Respiratory distress and cataracts could be related to exposure to a teratogen affecting organogenesis.",
+      "Thrombocytopenia and generalized rash might indicate an immune response to a teratogenic substance.",
+      "Congenital heart defect and hearing deficit are also common outcomes of teratogenic exposure."
+    ],
+    "evidence_against": [
+      "No family history of similar congenital conditions."
+    ],
+    "missing_information": [
+      "Maternal medical history and medications taken during pregnancy",
+      "Environmental exposures (e.g., drugs, infections, toxins) during pregnancy",
+      "Detailed genetic testing to rule out hereditary conditions"
+    ],
+    "confidence": 75,
+    "next_test": "Perform comprehensive genetic testing, maternal blood screening for infectious agents, and detailed review of maternal medication and environmental exposure history."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "persona",
+    "agentId": "analogical_thinker",
+    "replicate": 6,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The infant may have been exposed to a maternal infectious agent during pregnancy that led to multiple organ system involvement, including the central nervous system, eyes, and cardiovascular system, resulting in small for gestational age, microcephaly, and a combination of systemic symptoms like respiratory distress and thrombocytopenia.",
+    "alternative_hypotheses": [
+      "Genetic mutations or chromosomal abnormalities could have caused the observed conditions.",
+      "Intrauterine growth restriction due to placental insufficiency might have led to small for gestational age and microcephaly.",
+      "A perinatal infection unrelated to maternal exposure might have caused the symptoms."
+    ],
+    "mechanism": "An infectious agent, possibly viral, crossed the placental barrier, affecting the developing fetus's organs and systems.",
+    "evidence_for": [
+      "The combination of microcephaly, cataracts, and cardiovascular defects can sometimes be associated with prenatal infections.",
+      "Respiratory distress and thrombocytopenia are common presentations in neonates with congenital infections."
+    ],
+    "evidence_against": [
+      "There is no reported family history of similar conditions, which weakens the genetic mutation hypothesis.",
+      "The patient's gestation period was normal, reducing the likelihood of placental insufficiency causing growth restriction."
+    ],
+    "missing_information": [
+      "Maternal serology results for common prenatal infections such as CMV, toxoplasmosis, and rubella.",
+      "Details on the exact timing and duration of the symptoms relative to the gestational timeline."
+    ],
+    "confidence": 75,
+    "next_test": "Perform a detailed infectious disease workup, including serology and molecular testing, to identify any potential infectious agents that could have affected the fetus."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "baseline",
+    "agentId": "baseline",
+    "replicate": 7,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The infant experienced a rare genetic syndrome that manifests as small for gestational age, microcephaly, respiratory distress, thrombocytopenia, generalized rash, congenital heart defect, cataracts, and hearing deficit.",
+    "alternative_hypotheses": [
+      "Intrauterine infection leading to a multi-systemic inflammatory response",
+      "Maternal autoimmune disorder affecting fetal development",
+      "Toxoplasmic infection during pregnancy",
+      "Fetal exposure to teratogenic agents post-conception"
+    ],
+    "mechanism": "Genetic mutations affecting multiple organ systems and developmental processes",
+    "evidence_for": [
+      "The presence of multiple congenital anomalies",
+      "Small for gestational age and microcephaly",
+      "Congenital heart defect (patent ductus arteriosus)",
+      "Cataracts in both eyes",
+      "Hearing deficit"
+    ],
+    "evidence_against": [
+      "No family history of similar conditions",
+      "Full-term pregnancy without complications prior to delivery"
+    ],
+    "missing_information": [
+      "Genetic testing results",
+      "Detailed maternal medical history",
+      "Prenatal imaging studies",
+      "Complete blood work panel for the infant"
+    ],
+    "confidence": 75,
+    "next_test": "Perform comprehensive genetic testing including chromosomal analysis and panel for specific syndromes known to cause these symptoms"
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "persona",
+    "agentId": "teleological_tmk",
+    "replicate": 7,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The male infant's presentation is the result of a genetic mutation that disrupts normal embryonic development, leading to a range of congenital anomalies including small for gestational age, microcephaly, respiratory distress, thrombocytopenia, generalized rash, congenital heart defect, cataracts, and hearing deficit.",
+    "alternative_hypotheses": [
+      "An infectious agent during pregnancy caused these conditions.",
+      "Maternal immune response led to fetal damage.",
+      "A metabolic disorder present from conception is the underlying cause."
+    ],
+    "mechanism": "A genetic mutation likely disrupts the normal developmental pathways, leading to multiple congenital anomalies.",
+    "evidence_for": [
+      "The infant was small for gestational age and had microcephaly, indicating early developmental issues.",
+      "Respiratory distress and thrombocytopenia suggest a systemic impact on the fetus.",
+      "Generalized rash and cataracts indicate multi-system involvement.",
+      "Congenital heart defect and hearing deficit point to developmental disruptions in organogenesis."
+    ],
+    "evidence_against": [
+      "There was no family history of similar congenital conditions, making inherited genetic disorders less likely.",
+      "The combination of findings is not typically associated with common infectious agents or maternal immune responses."
+    ],
+    "missing_information": [
+      "Genetic testing results to confirm or rule out a specific mutation.",
+      "Detailed maternal medical history to identify any potential exposures or immune responses.",
+      "More comprehensive metabolic screening."
+    ],
+    "confidence": 85,
+    "next_test": "Perform comprehensive genetic testing including chromosomal analysis and targeted gene sequencing to identify any potential mutations."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "baseline",
+    "agentId": "baseline",
+    "replicate": 8,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The infant may have been affected by a maternal infection during pregnancy, leading to a variety of congenital anomalies, including small for gestational age, microcephaly, respiratory distress, thrombocytopenia, and others, along with specific findings such as cataracts and hearing deficit.",
+    "alternative_hypotheses": [
+      "Genetic syndrome inherited from parents.",
+      "Maternal medication or exposure to harmful substances during pregnancy.",
+      "Accidental injury during delivery.",
+      "Intrauterine growth restriction due to placental insufficiency."
+    ],
+    "mechanism": "The maternal infection likely caused inflammation and immune responses in the fetal environment, leading to impaired development and organ function.",
+    "evidence_for": [
+      "The presence of multiple congenital anomalies suggests a systemic cause rather than isolated factors.",
+      "Small for gestational age and microcephaly often result from poor fetal growth and brain development, which can be secondary to infections like rubella or cytomegalovirus.",
+      "Respiratory distress and thrombocytopenia can be signs of disseminated intravascular coagulation (DIC) which might occur in severe infections."
+    ],
+    "evidence_against": [
+      "No family history of similar conditions, which makes genetic syndromes less likely.",
+      "The absence of other clinical signs commonly associated with accidents or traumatic injuries."
+    ],
+    "missing_information": [
+      "Detailed maternal medical history, including exposure to infections or medications.",
+      "Serological tests for maternal infections like rubella, cytomegalovirus, herpes simplex virus, or toxoplasmosis.",
+      "Genetic testing to rule out syndromes."
+    ],
+    "confidence": 75,
+    "next_test": "Perform serological tests for common prenatal infections and consider genetic testing if necessary."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "persona",
+    "agentId": "dialectical_siev",
+    "replicate": 8,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The combination of small for gestational age, microcephaly, respiratory distress, thrombocytopenia, generalized rash, congenital heart defect, cataracts, and hearing deficit in the infant may be due to a novel genetic mutation that causes a syndrome combining features of intrauterine growth restriction, hemostatic disorders, ocular abnormalities, cardiovascular malformations, and neurological deficits.",
+    "alternative_hypotheses": [
+      "The infant's symptoms are due to an infection acquired during pregnancy or labor, such as cytomegalovirus (CMV) or toxoplasmosis, which can lead to multiple organ involvement including the nervous system, eyes, and cardiovascular system.",
+      "The symptoms are the result of exposure to a teratogenic drug or substance during pregnancy, leading to a complex array of congenital anomalies.",
+      "The infant has developed an autoimmune response to a maternal antibody that crossed the placenta, causing a range of symptoms including respiratory distress, thrombocytopenia, and rash."
+    ],
+    "mechanism": "A genetic mutation causes a multifaceted syndrome affecting multiple organ systems, leading to the observed clinical presentation.",
+    "evidence_for": [
+      "The presence of a patent ductus arteriosus, cataracts, and hearing deficit suggests underlying cardiovascular, ocular, and auditory issues that can be caused by a genetic mutation.",
+      "Microcephaly and small for gestational age indicate a prenatal developmental issue that can be related to genetic factors.",
+      "The combination of respiratory distress, thrombocytopenia, and generalized rash points towards a systemic condition that could be genetic in nature."
+    ],
+    "evidence_against": [
+      "No family history of similar congenital conditions might suggest a de novo mutation, but does not rule out genetic causes.",
+      "The rapid onset of symptoms within the first day of life could be consistent with an infectious or autoimmune etiology rather than a genetic disorder."
+    ],
+    "missing_information": [
+      "Genomic sequencing results to identify potential mutations.",
+      "Maternal serologies for common teratogens and infectious agents.",
+      "Detailed ophthalmological and audiological assessments to further characterize the ocular and auditory findings."
+    ],
+    "confidence": 75,
+    "next_test": "Genomic sequencing of the infant to identify potential genetic mutations responsible for the observed multi-systemic findings."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "baseline",
+    "agentId": "baseline",
+    "replicate": 9,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The infant may have been affected by a rare genetic disorder that leads to small for gestational age, microcephaly, respiratory distress, thrombocytopenia, and a variety of other systemic manifestations, including congenital heart defects, cataracts, and hearing deficits.",
+    "alternative_hypotheses": [
+      "Intrauterine infection leading to multi-system involvement.",
+      "Maternal autoimmune disease affecting fetal development.",
+      "Chromosomal abnormality such as trisomy or monosomy."
+    ],
+    "mechanism": "A genetic mutation may have caused the fetus to develop normally in utero but then exhibited symptoms after birth due to insufficient oxygen or nutrients, leading to various systemic effects.",
+    "evidence_for": [
+      "Small for gestational age at birth, which can be associated with genetic disorders.",
+      "Microcephaly, which can be a symptom of genetic syndromes or chromosomal abnormalities.",
+      "Congenital heart defect (patent ductus arteriosus) and cataracts, both of which can be linked to genetic disorders.",
+      "Thrombocytopenia, which can occur in association with certain genetic diseases.",
+      "Generalized rash, which can be a sign of a systemic condition."
+    ],
+    "evidence_against": [
+      "No family history of similar congenital conditions, making inherited genetic disorders less likely.",
+      "Successful full-term pregnancy, which does not support an intrauterine infection."
+    ],
+    "missing_information": [
+      "Genetic testing results to confirm or rule out specific genetic mutations or syndromes.",
+      "Complete metabolic panel to rule out metabolic disorders.",
+      "Detailed maternal history and blood work to assess for autoimmune factors."
+    ],
+    "confidence": 75,
+    "next_test": "Perform comprehensive genetic testing, including karyotyping and array comparative genomic hybridization (aCGH), to identify potential genetic causes."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "persona",
+    "agentId": "causal_mechanist",
+    "replicate": 9,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The combination of findings in the infant, including small for gestational age, microcephaly, respiratory distress, cyanosis, thrombocytopenia, a generalized rash, a congenital heart defect (patent ductus arteriosus), cataracts, and hearing deficit, could be due to maternal exposure to a teratogenic substance that affected fetal development.",
+    "alternative_hypotheses": [
+      "The infant experienced a genetic mutation that caused these symptoms.",
+      "The infant was exposed to a viral infection in utero that led to these developmental issues.",
+      "The infant has a rare metabolic disorder that manifests during early infancy."
+    ],
+    "mechanism": "The teratogen likely interfered with normal embryonic development by affecting cell division, differentiation, or organogenesis, leading to multiple congenital anomalies.",
+    "evidence_for": [
+      "The presence of multiple congenital anomalies can sometimes be caused by a common etiology such as a teratogen.",
+      "Teratogens can affect multiple organ systems, potentially explaining the wide range of symptoms observed.",
+      "There was no family history of similar congenital conditions, suggesting an exogenous rather than genetic cause."
+    ],
+    "evidence_against": [
+      "Maternal exposure to known teratogens does not always result in the exact same set of symptoms in all infants.",
+      "The timing of symptom onset (during the first day of life) may suggest a more immediate or acute event rather than a longer-term teratogenic effect."
+    ],
+    "missing_information": [
+      "Details about the mother's health and lifestyle during pregnancy, including any medications, environmental exposures, or infections.",
+      "Results from genetic testing of the infant to rule out a genetic condition.",
+      "Detailed viral serology results from the infant and possibly the mother."
+    ],
+    "confidence": 75,
+    "next_test": "Perform comprehensive genetic testing on the infant to rule out inherited genetic syndromes associated with multiple congenital anomalies, and conduct a detailed maternal medical history and toxicological screening."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "baseline",
+    "agentId": "baseline",
+    "replicate": 10,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The infant may have been exposed to a teratogenic substance during pregnancy, leading to a combination of congenital anomalies including small for gestational age, microcephaly, respiratory distress, thrombocytopenia, rash, heart defect, cataracts, and hearing deficit.",
+    "alternative_hypotheses": [
+      "Genetic mutation leading to all these symptoms",
+      "Intrauterine infection causing multi-system involvement",
+      "Maternal drug use or exposure to environmental toxins",
+      "Complication from an underlying maternal condition affecting fetal development"
+    ],
+    "mechanism": "Exposure to a teratogen during critical periods of fetal development can disrupt normal organogenesis and lead to a range of congenital anomalies.",
+    "evidence_for": [
+      "The presence of multiple congenital anomalies",
+      "Small for gestational age suggesting intrauterine growth restriction",
+      "Microcephaly indicating early brain development issues",
+      "Respiratory distress and thrombocytopenia which can be manifestations of systemic illness",
+      "Rash possibly due to immune response or direct toxin exposure",
+      "Patent ductus arteriosus and hearing deficit which could be related to underlying vascular or neural issues",
+      "Cataracts indicating potential ophthalmic involvement"
+    ],
+    "evidence_against": [
+      "No family history of similar conditions suggests a sporadic rather than inherited issue",
+      "Pregnancy proceeding to full term without prior complications indicates good prenatal care but does not rule out rare events"
+    ],
+    "missing_information": [
+      "Maternal medical history and lifestyle factors",
+      "Detailed prenatal testing results",
+      "Information on the infant's exposure to any substances or infections",
+      "Genetic testing results to rule out genetic causes"
+    ],
+    "confidence": 75,
+    "next_test": "Conduct comprehensive genetic testing and detailed maternal history to identify potential teratogens or inherited conditions."
+  },
+  {
+    "caseId": "crs_florida",
+    "condition": "persona",
+    "agentId": "analogical_thinker",
+    "replicate": 10,
+    "evidenceKey": "evidence",
+    "primary_hypothesis": "The infant may have been exposed to a maternal viral infection during the second trimester, leading to fetal development issues and subsequent symptoms.",
+    "alternative_hypotheses": [
+      "Genetic mutation or chromosomal abnormality",
+      "Maternal autoimmune response",
+      "Perinatal asphyxia or hypoxia",
+      "Congenital anomalies due to environmental factors",
+      "Maternal nutritional deficiency"
+    ],
+    "mechanism": "The virus could have crossed the placental barrier and affected the developing fetus, leading to multiple congenital anomalies including microcephaly, cataracts, and a heart defect. The respiratory distress and rash might be signs of a systemic inflammatory response or an allergic reaction to the virus.",
+    "evidence_for": [
+      "Small for gestational age and microcephaly suggest intrauterine growth restriction or developmental issues.",
+      "Respiratory distress, cyanosis, and rash indicate possible systemic involvement.",
+      "Thrombocytopenia can be a result of immune-mediated processes or viral infection.",
+      "Patent ductus arteriosus and cataracts suggest multiple organ system involvement.",
+      "Hearing deficit may also be related to a viral infection affecting auditory development."
+    ],
+    "evidence_against": [
+      "No family history of similar conditions.",
+      "Pregnancy progressed to full term without complications until late in gestation."
+    ],
+    "missing_information": [
+      "Detailed prenatal care records, including blood tests and imaging studies from the second trimester.",
+      "Maternal serum samples for viral markers.",
+      "Detailed description of the rash and its evolution.",
+      "Complete genetic analysis of the infant to rule out mutations."
+    ],
+    "confidence": 75,
+    "next_test": "Perform PCR and serology tests on maternal and infant blood samples to check for viral infections such as rubella, cytomegalovirus, or herpes simplex virus."
+  }
+]

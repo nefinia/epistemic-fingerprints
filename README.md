@@ -1,67 +1,96 @@
-# Epistemic Fingerprints
+# False Epistemic Redundancy
 
-**Many agents. How many minds?**
+**Do AI ensembles share a blind spot?**
 
-Epistemic Fingerprints is a small empirical pilot for the Apart Research Digital Minds Research Sprint. It asks whether repeated samples, prompted personas, or different formative histories produce stable patterns in how a language model forms hypotheses, selects experiments, and expresses uncertainty.
+Multiple AI instances are increasingly consulted the way multiple human
+experts would be, with the spread of their opinions treated as a proxy for
+independent judgment. This project tests a narrower version of that
+assumption: when a single language model is prompted under a neutral
+baseline and under four distinct reasoning personas, does the resulting
+diversity in its answers correspond to better recovery of a real,
+non-obvious explanation -- or does it just look diverse while missing the
+same thing every time?
 
-The project does **not** treat behavioral individuality as evidence of consciousness or moral patienthood. It tests whether epistemic behavior can contribute one operational dimension to the model–instance–persona–conversation individuation problem.
+We call this risk **false epistemic redundancy**, by analogy to
+common-mode failure in redundant engineered systems: a backup only
+protects you if it can fail for a different reason than the system it
+backs up.
 
-## Pilot design
+The full writeup, methodology, and results are in
+[`paper/false_epistemic_redundancy.pdf`](paper/false_epistemic_redundancy.pdf)
+(source: [`paper/false_epistemic_redundancy.tex`](paper/false_epistemic_redundancy.tex)),
+submitted to the Apart Research Digital Minds Research Sprint, August 2026.
 
-- One underlying model is held fixed.
-- Three conditions are compared: neutral repeated instances, epistemic personas, and different formative histories.
-- Candidate agents solve three synthetic scientific mysteries in fresh conversations.
-- Responses use a shared JSON format to separate epistemic choices from writing style.
-- The initial target is 54 observations: 3 conditions × 3 agents × 3 mysteries × 2 replicates.
+## What we did
 
-The live dashboard calculates descriptive accuracy, hypothesis diversity, shared-error concentration, and a provisional epistemic fingerprint strength. The included simulated dataset is visibly labeled and exists only to demonstrate the interface.
+Five real, previously investigated cases were selected against strict
+criteria (postdating the tested model's training cutoff where possible,
+a determinate and independently documented resolution, genuine
+non-obviousness -- see the paper's Methods section): an aviation accident,
+an industrial chemical fire, and a newborn's undiagnosed illness as the
+three hard cases, plus a bird-strike engine failure and a foodborne
+botulism outbreak as positive controls with more direct evidentiary
+signatures. The tested model (Qwen2.5-7B-Instruct, self-hosted on Modal)
+was given only the pre-resolution evidence for each case and asked to
+propose its own hypothesis -- no candidate list, no hint of the answer --
+under a neutral baseline framing and under four reasoning personas
+(causal-mechanist, analogical-thinker, teleological, dialectical), each
+grounded in a specific documented LLM reasoning weakness.
 
-## Reproduce the analysis
+**In short:** given only scene-level evidence, the model recovered the
+true cause in 0 of 60 hard-case attempts against 40 of 40 control
+attempts. Given the complete file human investigators actually used,
+recovery became case-dependent -- personas helped on one case, hurt on
+another, and made no difference on a third -- while persona conditioning
+reliably increased semantic diversity regardless of the outcome. Diversity
+and useful coverage of the consequential explanation are not the same
+quantity.
 
-The repository includes both a runnable Jupyter notebook and reusable Python analysis code. The notebook validates a JSON export from the web lab, checks experimental coverage, calculates the four Figure 1 metrics, and generates the comparison plot.
+## Repository structure
+
+- **`paper/`** -- the LaTeX source, compiled PDF, and figures for the
+  submission.
+- **`personas/`** -- case data (`cases.py`, including each case's
+  hidden target and grading rubric), the generation pipeline
+  (`investigate.py`, `personas.py`), the Modal serving script
+  (`serve_model.py`), and the raw generation outputs (`investigation_*.json`).
+- **`analysis/`** -- `tail_recovery.py` computes semantic diversity
+  (embedding-based mean pairwise distance and hypothesis-family
+  clustering) over a generation file; target recovery itself is scored by
+  hand against each case's rubric, deliberately not by an automated judge,
+  given the modest sample size.
+- **`notebooks/`** -- a Jupyter notebook for exploring generation output.
+
+## Reproducing the generation pipeline
+
+The generation pipeline calls a self-hosted vLLM endpoint on Modal.
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
+pip install instructor openai pydantic modal
+modal deploy personas/serve_model.py
+python personas/investigate.py
+```
+
+`investigate.py` runs capability-control checks per case, then samples ten
+baseline and ten persona-conditioned generations per case per evidence
+condition, writing structured JSON output. Case text, hidden targets, and
+grading rubrics live in `personas/cases.py` and are never shown to the
+generating model.
+
+## Reproducing the diversity analysis
+
+```bash
 pip install -r requirements-analysis.txt
-jupyter notebook notebooks/epistemic_fingerprints_analysis.ipynb
+python analysis/tail_recovery.py personas/investigation_full_evidence_v2.json
 ```
 
-By default the notebook uses an explicitly simulated 54-trial dataset so the full pipeline runs immediately. Set `DATA_PATH` to a JSON file exported by the web lab to analyze empirical observations. The analysis functions live in `analysis/pipeline.py` and can also be imported into scripts.
-
-## Pilot report
-
-The submission-ready pilot report is available at [`output/pdf/epistemic-fingerprints-pilot-report.pdf`](output/pdf/epistemic-fingerprints-pilot-report.pdf). It is intentionally framed as a protocol and open research artifact until empirical trial collection is complete.
-
-The more in-depth research paper is available at [`output/pdf/epistemic-fingerprints-research-paper.pdf`](output/pdf/epistemic-fingerprints-research-paper.pdf). It develops the conceptual framework, related-work gap, falsifiable predictions, operational definitions, analysis and robustness plan, threats to validity, ethical interpretation, and longer-term research program. This is the recommended primary submission once the results section has been updated with empirical trials; the shorter pilot report works well as a visual overview.
-
-Rebuild it with:
-
-```bash
-python tools/build_submission_pdf.py
-python tools/build_research_paper_pdf.py
-```
-
-## Run locally
-
-```bash
-npm install
-npm run dev
-```
-
-Open `http://localhost:3000`.
-
-## Validate
-
-```bash
-npm run build
-npm test
-```
-
-## Data handling
-
-Empirical trial data is stored in the browser that records it. Export the JSON file after every collection session. No API key is required for the initial manual-subscription pilot, and no research data is transmitted by this app.
+This embeds each generation's primary hypothesis and mechanism
+(`all-MiniLM-L6-v2`) and reports mean pairwise semantic distance and
+hypothesis-family cluster count by case and condition.
 
 ## Status
 
-Protocol and collection instrument are under active development. No empirical result should be inferred from the simulated demonstration dataset.
+This is a small, exploratory pilot (three hard cases, five total), not a
+definitive study. The paper's Future Work section outlines the case-set
+expansion, model families, and fine-tuned (rather than prompted) persona
+variants needed to test how general this pattern is.
