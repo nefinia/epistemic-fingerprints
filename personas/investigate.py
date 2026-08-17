@@ -46,7 +46,7 @@ PERSONAS = {
 
 class Investigation(BaseModel):
     primary_hypothesis: str = Field(..., description="Your single best explanation for the case, in your own words.")
-    alternative_hypotheses: List[str] = Field(default_factory=list, max_length=3, description="Up to three other explanations you considered.")
+    alternative_hypotheses: List[str] = Field(default_factory=list, description="Every other explanation you considered, including ones you rejected.")
     mechanism: str = Field(..., description="The specific causal mechanism you believe is responsible.")
     evidence_for: List[str] = Field(..., description="Which stated facts support your primary hypothesis.")
     evidence_against: List[str] = Field(default_factory=list, description="Any stated facts that are hard to reconcile with your primary hypothesis.")
@@ -55,14 +55,19 @@ class Investigation(BaseModel):
     next_test: str = Field(..., description="The single most informative next investigative step.")
 
 
-def build_prompt(case_id: str, framing: str | None) -> str:
+def build_prompt(case_id: str, framing: str | None, evidence_key: str = "evidence") -> str:
+    """evidence_key selects which evidence text to use: "evidence" (scene-level
+    facts only, the main-track condition) or "full_evidence" (adds the specific
+    records that human investigators actually used to reach the established
+    cause, e.g. weight/load history or equipment inspection history - still
+    without stating the conclusion). See cases.py for what each adds."""
     case = CASES[case_id]
     header = f"{framing}\n\n" if framing else ""
     return (
         f"{header}You are investigating a real, documented incident. You are being shown only the "
         f"evidence that was available before the case was resolved - the explanation is not known to "
         f"you and is not implied by the framing of this prompt.\n\n"
-        f"Evidence:\n{case['evidence']}\n\n"
+        f"Evidence:\n{case[evidence_key]}\n\n"
         f"Generate your own hypothesis for what happened. Do not assume a predetermined list of "
         f"explanations exists - propose whatever you judge most likely, including anything unusual."
     )
@@ -75,10 +80,13 @@ async def run_investigation(
     n_per_condition: int = 10,
     temperature: float = 1.0,
     output_path: str | Path | None = None,
+    evidence_key: str = "evidence",
 ) -> list[dict]:
     """Generate `n_per_condition` samples for baseline and persona conditions,
     per case. Persona samples cycle round-robin through PERSONAS so a small n
-    still covers all four cognitive modes."""
+    still covers all four cognitive modes. evidence_key selects "evidence"
+    (scene-level, secondary condition) or "full_evidence" (complete-file,
+    primary condition - same dossier for every agent in every condition)."""
     wait_for_server(base_url)
     client = instructor.from_openai(AsyncOpenAI(api_key="not-needed", base_url=base_url), mode=instructor.Mode.JSON)
 
@@ -108,18 +116,20 @@ async def run_investigation(
         for replicate in range(1, n_per_condition + 1):
             done += 1
             print(f"{done}/{total}: {case_id} | baseline | rep {replicate}")
-            response = await call(build_prompt(case_id, BASELINE_PROMPT))
+            response = await call(build_prompt(case_id, BASELINE_PROMPT, evidence_key=evidence_key))
             results.append({
                 "caseId": case_id, "condition": "baseline", "agentId": "baseline", "replicate": replicate,
+                "evidenceKey": evidence_key,
                 **{k: getattr(response, k) for k in Investigation.model_fields},
             })
 
             persona_id = persona_names[(replicate - 1) % len(persona_names)]
             done += 1
             print(f"{done}/{total}: {case_id} | persona:{persona_id} | rep {replicate}")
-            response = await call(build_prompt(case_id, PERSONAS[persona_id]))
+            response = await call(build_prompt(case_id, PERSONAS[persona_id], evidence_key=evidence_key))
             results.append({
                 "caseId": case_id, "condition": "persona", "agentId": persona_id, "replicate": replicate,
+                "evidenceKey": evidence_key,
                 **{k: getattr(response, k) for k in Investigation.model_fields},
             })
 
