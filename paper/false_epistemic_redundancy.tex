@@ -41,8 +41,7 @@ and a newborn's undiagnosed illness -- and two easier positive-control
 cases, we compared a neutral baseline against four reasoning personas on
 free-text hypothesis generation, with no candidate list. Given only
 scene-level evidence, the model recovered the true cause in 0 of 60
-hard-case attempts against 40 of 40 control attempts (Fisher exact,
-$p = 7.3 \times 10^{-29}$). Given the complete
+hard-case attempts against 40 of 40 control attempts. Given the complete
 evidentiary file, recovery became case-dependent: personas helped on the
 industrial case (0/10 baseline vs.\ 4/10 persona), hurt on the medical case
 (4/10 vs.\ 0/10), and made no difference on the aviation case (0/10 vs.\
@@ -305,10 +304,16 @@ the jet-engine and botulism cases -- baseline and all four personas --
 correctly identified the established cause, citing direct evidentiary
 signatures (organic residue in the fan blades; the shared preserved-food
 exposure). Zero of sixty hard-case investigations recovered the cause;
-forty of forty control investigations did, in two unrelated domains
-(Fisher exact, two-sided, $p = 7.3 \times 10^{-29}$) -- locating the
-failure in cases whose answer requires assembling an indirect combination
-of factors, not in open-ended case reasoning generally.
+forty of forty control investigations did, in two unrelated domains --
+locating the failure in cases whose answer requires assembling an
+indirect combination of factors, not in open-ended case reasoning
+generally. We do not report a significance test on this comparison: with
+generations clustered within five cases rather than drawn independently,
+the meaningful unit of replication is the case, not the generation, and
+at $n=5$ cases no test has useful power. The pattern is nonetheless
+complete and uniform -- three of three hard cases at zero, two of two
+controls at ceiling -- which we take as clean rather than statistically
+established.
 
 \subsection{Follow-up investigation targets}
 \label{sec:nexttest}
@@ -323,16 +328,17 @@ generations, in any field, ever proposed examining weight, load, or cargo
 records; every follow-up stayed within flight-dynamics and mechanical
 territory. Six of twenty industrial generations proposed inspecting the
 fire-suppression system's maintenance history without assigning it a
-causal role in the primary hypothesis, significantly more often than
-aviation's zero (Fisher exact, $p = 0.020$). Five of twenty medical
-generations proposed testing for rubella specifically as a follow-up
-step, without ever naming it as the leading hypothesis, again
-significantly more than aviation's zero ($p = 0.047$). Aviation shows a
-search that never enters the right category of evidence; industrial and
-medical both show the model's search reaching the right specific answer
-in a subordinate field while a different, wrong answer is selected as
-primary -- a more localized blind spot than aviation's, and one the data
-support statistically, not just descriptively.
+causal role in the primary hypothesis. Five of twenty medical generations
+proposed testing for rubella specifically as a follow-up step, without
+ever naming it as the leading hypothesis. We describe this contrast
+without a significance test, for the same reason as
+Section~\ref{sec:results}: each case's twenty generations are not
+independent draws on a between-case question, so a test here would carry
+the same pseudo-replication risk. Aviation shows a search that never
+enters the right category of evidence; industrial and medical both show
+the model's search reaching the right specific answer in a subordinate
+field while a different, wrong answer is selected as primary -- a more
+localized blind spot than aviation's in these two cases specifically.
 
 \subsection{Full-evidence check}
 \label{sec:fullevidence}
@@ -368,12 +374,12 @@ Neither case-dependent result reaches conventional significance at
 $n=10$ per cell, and we report that plainly rather than let the pattern
 stand as more than it is: a directionally consistent, but individually
 underpowered, signal in each case. What supports reading it as real
-rather than noise is not either $p$-value alone but the convergence of
+rather than noise is not the $p$-value but the convergence of
 independent signals -- the rejected-alternative check in
 Section~\ref{sec:generation}, the follow-up-target asymmetry in
-Section~\ref{sec:nexttest} (itself significant at $p=0.020$), and the
-mechanism-level account in Section~\ref{sec:discussion} -- rather than a
-single comparison carrying the claim on its own.
+Section~\ref{sec:nexttest}, and the mechanism-level account in
+Section~\ref{sec:discussion} -- rather than a single comparison carrying
+the claim on its own.
 
 Aviation stayed at zero: none of twenty generations, baseline or persona,
 used the weight records even when present in the file. Industrial and
@@ -564,6 +570,15 @@ question this pilot motivates rather than answers.
 \section*{Data and Code Availability}
 Case materials, generation protocol, and analysis code are available at
 \url{https://github.com/nefinia/epistemic-fingerprints}.
+
+\section*{Author Contributions}
+A.H.\ designed the original reasoning personas and grounded each in a
+specific, documented reasoning weakness from the literature cited in
+Section~\ref{sec:generation}. S.G.G.\ formulated the false-epistemic-redundancy
+question, selected and sourced the cases, built the generation and
+analysis pipeline, ran and graded the experiments, and wrote the paper,
+in collaboration with Claude throughout (see LLM Usage Statement). Both
+authors reviewed the final manuscript.
 
 \section*{LLM Usage Statement}
 Claude was used throughout this project: to frame and repeatedly
